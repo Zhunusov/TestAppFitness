@@ -1,12 +1,12 @@
-﻿using FitenessApp.DAL.EF;
-using FitenessApp.DAL.Entities;
-using FitenessApp.DAL.Interfaces;
-using FitenessApp.DAL.Identity;
+﻿using FitnessApp.DAL.EF;
+using FitnessApp.DAL.Entities;
+using FitnessApp.DAL.Interfaces;
+using FitnessApp.DAL.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Threading.Tasks;
 
-namespace FitenessApp.DAL.Repositories
+namespace FitnessApp.DAL.Repositories
 {
     public class IdentityUnitOfWork : IUnitOfWork
     {

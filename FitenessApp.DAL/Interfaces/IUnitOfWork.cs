@@ -1,11 +1,11 @@
-﻿using FitenessApp.DAL.Entities;
-using FitenessApp.DAL.Identity;
+﻿using FitnessApp.DAL.Entities;
+using FitnessApp.DAL.Identity;
 using System;
 using System.Threading.Tasks;
 
-namespace FitenessApp.DAL.Interfaces
+namespace FitnessApp.DAL.Interfaces
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         ApplicationUserManager UserManager { get; }
         ApplicationRoleManager RoleManager { get; }

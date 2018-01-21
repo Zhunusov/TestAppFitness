@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FitenessApp.DAL.Interfaces
+namespace FitnessApp.DAL.Interfaces
 {
     public interface IRepository<T> where T : class
     {        

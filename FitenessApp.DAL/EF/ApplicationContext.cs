@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using FitenessApp.DAL.Entities;
+using FitnessApp.DAL.Entities;
 
-namespace FitenessApp.DAL.EF
+namespace FitnessApp.DAL.EF
 {
     public class ApplicationContext : IdentityDbContext<ApplicationUser>
     {

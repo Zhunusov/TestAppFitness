@@ -1,8 +1,8 @@
-﻿using FitenessApp.DAL.Entities;
+﻿using FitnessApp.DAL.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace FitenessApp.DAL.Identity
+namespace FitnessApp.DAL.Identity
 {
     public class ApplicationRoleManager : RoleManager<ApplicationRole>
     {

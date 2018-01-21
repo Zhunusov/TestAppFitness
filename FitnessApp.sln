@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessApp.BLL", "FitnessApp.BLL\FitnessApp.BLL.csproj", "{4EC11971-2436-4471-94BD-7359BA519704}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitenessApp.DAL", "FitenessApp.DAL\FitenessApp.DAL.csproj", "{FFDE0583-EE47-4047-98D1-7759DB33BC57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessApp.DAL", "FitenessApp.DAL\FitnessApp.DAL.csproj", "{FFDE0583-EE47-4047-98D1-7759DB33BC57}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessApp.WEB", "FitnessApp.WEB\FitnessApp.WEB.csproj", "{0C0705A5-7894-4D7E-BA02-268C062AAE4E}"
 EndProject

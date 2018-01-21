@@ -1,7 +1,7 @@
-﻿using FitenessApp.DAL.Entities;
+﻿using FitnessApp.DAL.Entities;
 using Microsoft.AspNet.Identity;
 
-namespace FitenessApp.DAL.Identity
+namespace FitnessApp.DAL.Identity
 {
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {

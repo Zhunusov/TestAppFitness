@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FitnessApp.BLL.DTO;
 
-namespace FitnessApp.BLL
+namespace FitnessApp.BLL.Interfaces
 {
-    public class Class1
+    public interface IManagerService : IUserService<ManagerDTO>
     {
     }
 }

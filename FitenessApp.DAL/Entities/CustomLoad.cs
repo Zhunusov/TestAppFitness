@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FitenessApp.DAL.Entities
+namespace FitnessApp.DAL.Entities
 {
     public class CustomLoad
     { 

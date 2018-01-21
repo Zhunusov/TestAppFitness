@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FitenessApp.DAL.Entities
+namespace FitnessApp.DAL.Entities
 {
     public class Manager
     {
@@ -19,7 +19,7 @@ namespace FitenessApp.DAL.Entities
 
         public virtual ApplicationUser ApplicationUser { get; set; }
         [ForeignKey("Image")]
-        public Guid ImageId { get; set; }
+        public Guid? ImageId { get; set; }
         public Image Image { get; set; }
         public ICollection<Coach> Coaches { get; set; }
         public ICollection<Customer> Customers { get; set; }

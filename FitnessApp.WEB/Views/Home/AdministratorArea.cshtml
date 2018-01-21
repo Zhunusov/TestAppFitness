@@ -1,0 +1,105 @@
+﻿@using Resources;
+@{
+    ViewBag.Title = "AdministratorArea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <div class="w3-container" style="margin-top:117px">
+        <script>
+            var strResult = '<a class="w3-bar-item w3-button w3-hide-medium w3-hide-small w3-hover-white w3-padding-16 my-nav-head" href="javascript:void(0)" onclick=' + "show_nav(this,'menuCustomers')" + '>' + '@Resource.Customers' + '</a>' +
+                                '<a class="w3-bar-item w3-button w3-hide-medium w3-hover-white w3-padding-16 my-nav-head" href="javascript:void(0)" onclick=' + "show_nav(this,'menuCoaches')" + '>' + '@Resource.Coaches' + '</a>' +
+                                '<a class="w3-bar-item w3-button w3-hide-medium w3-hover-white w3-padding-16 my-nav-head" href="javascript:void(0)" onclick=' + "show_nav(this,'menuManagers')" + '>' + '@Resource.Managers' + "</a>"
+            $('#main_menu').append(strResult);
+        </script>
+
+        <div class="w3-sidebar w3-bar-block w3-collapse w3-animate-left" style="z-index:3;width:270px;max-height:350px" id="mySidebar">
+
+            <div class="w3-bar w3-hide-large w3-large">
+                <a href="javascript:void(0)" onclick="show_nav(this, 'menuCustomers')" class="w3-bar-item w3-button w3-theme w3-hover-white w3-padding-16 my-nav-head" id="my_nav_head_menuCustomers" style="width:50%">@Resource.Customers</a>
+                <a href="javascript:void(0)" onclick="show_nav(this, 'menuCoaches')" class="w3-bar-item w3-button w3-theme w3-hover-white w3-padding-16 my-nav-head" style="width:50%">@Resource.Coaches</a>
+                <a href="javascript:void(0)" onclick="show_nav(this, 'menuManagers')" class="w3-bar-item w3-button w3-theme w3-hover-white w3-padding-16 my-nav-head" style="width:50%">@Resource.Managers</a>
+            </div>
+
+            <a href="javascript:void(0)" onclick="close_sidebar()" class="w3-button w3-right w3-xlarge w3-hide-large" title="@Resource.Tt_close_menu">×</a>
+
+            <div id="menuCustomers" class="myMenu" style="display:none">
+                <div class="w3-container">
+                    <h3 id="head_customers_cont">@Resource.Customers</h3>
+                </div>
+                <a class="w3-bar-item w3-button my-nav" id="nav_list_customers">@Resource.List_customers</a>
+                <a class="w3-bar-item w3-button my-nav" id="nav_add_customer">@Resource.Add_customer</a>               
+            </div>
+            <div id="menuCoaches" class="myMenu" style="display:none">
+                <div class="w3-container">
+                    <h3>@Resource.Coaches</h3>
+                </div>
+                <a class="w3-bar-item w3-button my-nav" id="nav_list_coaches">@Resource.List_coaches</a>
+                <a class="w3-bar-item w3-button my-nav" id="nav_add_coach">@Resource.Add_coach</a>                
+            </div>
+            <div id="menuManagers" class="myMenu" style="display:none">
+                <div class="w3-container">
+                    <h3>@Resource.Managers</h3>
+                </div>
+                <a class="w3-bar-item w3-button my-nav" id="nav_list_managers">@Resource.List_managers</a>
+                <a class="w3-bar-item w3-button my-nav" id="nav_add_manager">@Resource.Add_manager</a>
+            </div>
+
+        </div>
+
+        <div class="w3-overlay w3-hide-large" onclick="close_sidebar()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+        <div class="w3-main w3-container" style="margin-left:270px">
+            <div class="w3-panel" style="min-height:400px" id="main_panel">
+                <div class="w3-row">
+                    <ul class="breadcrumb">
+                        <li><a id="title_main_cont_level_1"></a></li>
+                        <li><a id="title_main_cont_level_2"></a></li>
+                    </ul>
+                </div>
+                <div id="data_result">
+                    <table class="w3-table w3-bordered w3-hoverable">
+                        <thead>
+                            <tr class="w3-light-grey">
+                                <th></th>
+                                <th>Customer name</th>
+                                <th>Age</th>
+                                <th>Sex</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tr style="cursor:pointer">
+                            <td>
+                                <img src="~/Images/user.png" class="w3-circle" alt="Avatar" style="height:35px;width:35px;"/>
+                            </td>
+                            <td>Иванов Иван Иванович</td>
+                            <td>24</td>
+                            <td>мужчина</td>
+                            <td>
+                                <a class="w3-button w3-red w3-round w3-small w3-right w3-hover-red w3-hover-opacity">Удалить</a>
+                                <a class="w3-button w3-blue w3-round w3-small w3-right w3-hover-blue w3-hover-opacity">Редактировать</a>
+                            </td>
+                        </tr>
+                        <tr style="cursor:pointer">
+                            <td>
+                                <img src="~/Images/user.png" class="w3-circle" alt="Avatar" style="height:35px;width:35px;"/>
+                            </td>
+                            <td>Иванов Иван Иванович</td>
+                            <td>24</td>
+                            <td>мужчина</td>
+                            <td>
+                                <a class="w3-button w3-red w3-round w3-small w3-right w3-hover-red w3-hover-opacity">Удалить</a>
+                                <a class="w3-button w3-blue w3-round w3-small w3-right w3-hover-blue w3-hover-opacity">Редактировать</a>
+                            </td>
+                        </tr>                       
+                    </table>
+                </div>              
+            </div>
+        </div>      
+    </div>
+</body>
+
+<script>
+
+</script>
+

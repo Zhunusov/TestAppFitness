@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FitenessApp.DAL.Entities
+namespace FitnessApp.DAL.Entities
 {
     public class Administrator
     {
@@ -15,7 +15,7 @@ namespace FitenessApp.DAL.Entities
 
         public virtual ApplicationUser ApplicationUser { get; set; }
         [ForeignKey("Image")]
-        public Guid ImageId { get; set; }
+        public Guid? ImageId { get; set; }
         public Image Image { get; set; }
     }
 }

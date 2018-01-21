@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 
 
-namespace FitenessApp.DAL.Entities
+namespace FitnessApp.DAL.Entities
 {
     public class ApplicationUser : IdentityUser
     {

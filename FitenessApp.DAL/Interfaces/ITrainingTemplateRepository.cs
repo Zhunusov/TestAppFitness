@@ -1,7 +1,7 @@
 ﻿using System;
-using FitenessApp.DAL.Entities;
+using FitnessApp.DAL.Entities;
 
-namespace FitenessApp.DAL.Interfaces
+namespace FitnessApp.DAL.Interfaces
 {
     public interface ITrainingTemplateRepository : IRepository<TrainingTemplate>
     {

@@ -1,43 +1,179 @@
-﻿<!DOCTYPE html>
+﻿@using Resources;
+
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/SiteScripts.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                </ul>
+    <div class="w3-top">
+        <div class="w3-row w3-white w3-padding">
+            <a class="w3-button w3-hover-white" href='~/Home/Index'><b>@Resource.Project</b></a>
+            <div class="w3-right">
+                <div class="w3-dropdown-hover">
+                    <button class="w3-button w3-white" id="btn_dropdown_lang">@Resource.Language</button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4" id="lang_change_content">
+                        <a class="w3-bar-item w3-button" id="lang_ru">Русский</a>
+                        <a class="w3-bar-item w3-button" id="lang_en">English</a>
+                    </div>
+                </div>
+                @if (!Request.IsAuthenticated)
+                {
+                    <button onclick="document.getElementById('register_modal').style.display = 'block'" class="w3-button w3-theme w3-hover-white">@Resource.Btn_register</button>
+                    <button onclick="document.getElementById('logon_modal').style.display = 'block'" class="w3-button w3-theme w3-hover-white">@Resource.Btn_login</button>
+                }
+                else
+                {
+                    <a class="w3-button w3-hover-white" onclick="edit_personal_info()" title="@Resource.Tt_personal_info">@Resource.EntryText 
+                        <b id="current_user">@User.Identity.Name</b>
+                        <i id="current_user_satus"></i>
+                        <img src="~/Images/user.png" class="w3-circle" alt="Avatar" style="height:25px;width:25px;" />
+                    </a>
+                    <button class="w3-button w3-theme w3-hover-white" id="logoff">@Resource.Btn_logout</button>
+                }
+
             </div>
         </div>
+        <div class="w3-bar w3-theme w3-large" style="z-index:4;height:59px" id="main_menu">
+            <a class="w3-bar-item w3-button w3-left w3-hide-large w3-hover-white w3-large w3-theme w3-padding-16" href="javascript:void(0)" onclick="open_sidebar()">☰</a>
+        </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+    @if (!Request.IsAuthenticated)
+    {
+        <div class="w3-main w3-container" style="height:300px;margin-top:117px;">
+            <div class="w3-center"><p>@Resource.Authorization_ask</p></div>
+        </div>
+    }
+
+    @if (Request.IsAuthenticated)
+    {
+       
+    }
+    else
+    {
+        Html.RenderPartial("RegisterPartial");
+        Html.RenderPartial("LoginPartial");
+    }
+
+    @RenderBody()
+    <div class="w3-container">
+        <footer class="w3-center w3-padding-16 w3-border-top">
+            <p>@Resource.Made_by <a href="#" target="_blank" class="w3-hover-text-green">@Resource.Developer</a></p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @if (!Request.IsAuthenticated)
+    {
+        <script>
+            document.getElementById('logon_modal').style.display = 'block';
+        </script>
+    }
+
+
+    
+    @if (Request.IsAuthenticated)
+    {
+        <script>
+            $(function () {
+                $.ajax({
+                    url: '/api/account/getuserrole',
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        $("#current_user_satus").text("(" + data + ")");
+                    },
+                    error: function (x, y, z) {
+                        alert(x + '\n' + y + '\n' + z);
+                    }
+                });
+            });
+        </script>
+    }
+
+    <script>
+        $(function () {
+            $('#lang_ru').click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/api/culture/changeculture',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify("ru"),
+                    success: function () {
+                        location.reload(true);
+                    },
+                    error: function (obj, error, status) {
+                        var response = jQuery.parseJSON(obj.responseText);
+                        if (response['ModelState']) {
+                            $.each(response['ModelState'], function (index, item) { alert(item + '\n'); });
+                        }
+                    }
+                });
+            });
+        });
+
+        $(function () {
+            $('#lang_en').click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/api/culture/changeculture',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify("en"),
+                    success: function () {
+                        location.reload(true);
+                    },
+                    error: function (obj, error, status) {
+                        var response = jQuery.parseJSON(obj.responseText);
+                        if (response['ModelState']) {
+                            $.each(response['ModelState'], function (index, item) { alert(item + '\n'); });
+                        }
+                    }
+                });
+            });
+        });
+
+        $(function () {
+            $('#logoff').click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/api/account/logout',
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function () {
+                        location.reload(true);
+                    },
+                    error: function (x, y, z) {
+                        alert(x + '\n' + y + '\n' + z);
+                    }
+                });
+            });
+        });
+
+        function show_nav(obj, name) {
+            $("#menuCustomers").css("display", "none");
+            $("#menuCoaches").css("display", "none");
+            $("#menuManagers").css("display", "none");
+            $("#" + name).css("display", "block");
+            $('#data_result').empty();
+            $('#title_main_cont_level_2').text("");
+            $('#title_main_cont_level_1').text(obj.text);
+        }
+
+        $(function () {
+            $('.my-nav').click(function (e) {
+                e.preventDefault();
+                $('#title_main_cont_level_2').text($(this).text());
+            });
+        });
+    </script>
 </body>
 </html>

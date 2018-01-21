@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FitenessApp.DAL.Interfaces
+namespace FitnessApp.DAL.Interfaces
 {
     public interface IUserManager<T> where T : class
     {

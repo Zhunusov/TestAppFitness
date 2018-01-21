@@ -1,12 +1,12 @@
-﻿using FitenessApp.DAL.Interfaces;
-using FitenessApp.DAL.Entities;
-using FitenessApp.DAL.EF;
+﻿using FitnessApp.DAL.Interfaces;
+using FitnessApp.DAL.Entities;
+using FitnessApp.DAL.EF;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System;
 
-namespace FitenessApp.DAL.Repositories
+namespace FitnessApp.DAL.Repositories
 {
     public class CustomerRepository : IUserManager<Customer>
     {
