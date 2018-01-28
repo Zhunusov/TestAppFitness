@@ -1,0 +1,47 @@
+# Ignore file for Visual Studio 2008
+# use glob syntax
+syntax: glob
+# Ignore Visual Studio 2008 files
+*.obj
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.scc
+[Bb]in
+[Dd]ebug*/
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]humbs.db
+[Tt]est[Rr]esult*
+[Bb]uild[Ll]og.*
+*.[Pp]ublish.xml
+*.resharper
+*.orig
+*Backup/*
+
+packages/
+FitenessApp.BLL/bin/
+FitenessApp.BLL/obj/
+FitenessApp.DAL/bin/
+FitenessApp.DAL/obj/
+FitenessApp.WEB/bin/
+FitenessApp.WEB/obj/
+
+
+
