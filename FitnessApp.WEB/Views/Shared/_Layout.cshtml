@@ -6,10 +6,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    <script src="~/Scripts/SiteScripts.js"></script>
+    <link href="~/Content/Site.css" rel="stylesheet" />   
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/Scripts/SiteScripts.js"></script>
 
 </head>
 
@@ -46,6 +46,8 @@
             <a class="w3-bar-item w3-button w3-left w3-hide-large w3-hover-white w3-large w3-theme w3-padding-16" href="javascript:void(0)" onclick="open_sidebar()">☰</a>
         </div>
     </div>
+    @RenderBody()
+
     @if (!Request.IsAuthenticated)
     {
         <div class="w3-main w3-container" style="height:300px;margin-top:117px;">
@@ -55,7 +57,7 @@
 
     @if (Request.IsAuthenticated)
     {
-       
+        Html.RenderPartial("EditInfoPartial");
     }
     else
     {
@@ -63,7 +65,7 @@
         Html.RenderPartial("LoginPartial");
     }
 
-    @RenderBody()
+
     <div class="w3-container">
         <footer class="w3-center w3-padding-16 w3-border-top">
             <p>@Resource.Made_by <a href="#" target="_blank" class="w3-hover-text-green">@Resource.Developer</a></p>
@@ -78,7 +80,7 @@
     }
 
 
-    
+
     @if (Request.IsAuthenticated)
     {
         <script>
@@ -173,6 +175,61 @@
                 e.preventDefault();
                 $('#title_main_cont_level_2').text($(this).text());
             });
+        });
+
+        function edit_personal_info() {
+            $.ajax({
+                url: '/api/account/getuserinfo',
+                type: 'GET',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    document.getElementById('modal_editing_per_info').style.display = 'block';
+                    document.getElementById('mySidebar').style.zIndex = '0';
+                    switch (data.Role) {
+                        case "Administrator":
+                            WriteResponseAdmin(data);
+                            document.getElementById('editing_per_info_admin_form').style.display = 'block';
+                            break;
+
+                        case "Customer":
+                            WriteResponseCustomer(data);
+                            document.getElementById('editing_per_info_customer_form').style.display = 'block';
+                            break;
+                    }
+
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        }
+
+        function Close_modal_editing() {
+            document.getElementById('modal_editing_per_info').style.display = 'none';
+            document.getElementById('editing_per_info_admin_form').style.display = 'none';
+            document.getElementById('editing_per_info_customer_form').style.display = 'none';
+            document.getElementById('role_status').innerHTML = '';
+            document.getElementById('mySidebar').style.zIndex = '4';
+        }
+
+        function WriteResponseAdmin(user) {
+            document.getElementById('username_admin_form').value = user.UserName;
+            document.getElementById('firstname_admin_form').value = user.FirstName;
+            document.getElementById('lastname_admin_form').value = user.LastName;
+            document.getElementById('patronymic_admin_form').value = user.Patronymic;
+            document.getElementById('role_status').innerHTML = user.Role;
+        }
+
+        function WriteResponseCustomer(user) {
+            document.getElementById('username_customer_form').value = user.UserName;
+            document.getElementById('firstname_customer_form').value = user.FirstName;
+            document.getElementById('lastname_customer_form').value = user.LastName;
+            document.getElementById('patronymic_customer_form').value = user.Patronymic;
+            document.getElementById('role_status').innerHTML = user.Role;
+        }
+
+        $(function () {
+            $("#dateofbirth_customer_form").datepicker({ maxDate: 0, dateFormat: "dd.mm.yy" });           
         });
     </script>
 </body>

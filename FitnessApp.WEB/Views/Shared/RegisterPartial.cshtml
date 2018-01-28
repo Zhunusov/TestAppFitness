@@ -17,15 +17,15 @@
                 <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="@Resource.Ph_password" id="psw" required>
                 <label><b>@Resource.Password_confirm</b></label>
                 <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="@Resource.Ph_password_confirm" id="psw_confirm" required onchange="compare_password()">    
-                
+                <label><b>@Resource.FirstName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_firstname" id="firstname" required>
+                <label><b>@Resource.LastName</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_lastName" id="lastname" required>
+                <label><b>@Resource.Patronymic</b></label>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_patronymic" id="patronymic">
+
                 @if (Request.IsAuthenticated && Roles.IsUserInRole(User.Identity.Name, "Administrator"))
                 {
-                    <label><b>@Resource.FirstName</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_firstname" id="firstname" required>
-                    <label><b>@Resource.LastName</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_lastName" id="lastname" required>
-                    <label><b>@Resource.Patronymic</b></label>
-                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_patronymic" id="patronymic">
                     <label><b>@Resource.Role</b></label>
                     <select id="selected_role" class="w3-input w3-border w3-margin-bottom">
                         <option value="Customer">@Resource.Customer</option>
@@ -56,4 +56,34 @@
             return false;
         }
     }
+
+    $(function () {
+        $('#register_form').submit(function (e) {
+            e.preventDefault();
+            var data = {
+                Email: $('#email').val(),
+                Password: $('#psw').val(),
+                ConfirmPassword: $('#psw_confirm').val(),
+                FirstName: $('#firstname').val(),
+                LastName: $('#lastname').val(),
+                Patronymic: $('#patronymic').val(),                
+                Role: $('#selected_role').val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/api/account/register',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data),
+                success: function () {
+                    location.reload(true);
+                },
+                error: function (obj, error, status) {
+                    var response = jQuery.parseJSON(obj.responseText);
+                    if (response['ModelState']) {
+                        $.each(response['ModelState'], function (index, item) { alert(item + '\n'); });
+                    }
+                }
+            });
+        });
+    });
 </script>

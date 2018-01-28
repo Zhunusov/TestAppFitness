@@ -10,8 +10,8 @@ namespace FitnessApp.BLL.DTO
     {
         public DateTime? DateOfBirth { get; set; }
         public string Address { get; set; }
-        public int Weight { get; set; }
-        public int Growth { get; set; }
+        public int? Weight { get; set; }
+        public int? Growth { get; set; }
         public string Sex { get; set; }
         public string Phone { get; set; }
 

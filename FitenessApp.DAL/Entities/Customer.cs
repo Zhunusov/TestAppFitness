@@ -15,8 +15,8 @@ namespace FitnessApp.DAL.Entities
         public string Patronymic { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string Address { get; set; }
-        public int Weight { get; set; }
-        public int Growth { get; set; }
+        public int? Weight { get; set; }
+        public int? Growth { get; set; }
         public string Sex { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }

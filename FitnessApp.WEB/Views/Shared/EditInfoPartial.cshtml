@@ -1,0 +1,71 @@
+﻿@using Resources;
+
+<div id="modal_editing_per_info" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="width:700px; min-height:500px;">
+
+        <div class="w3-center">
+            <br>
+            <span onclick="Close_modal_editing()" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal">×</span>            
+        </div>
+
+        <div class="w3-row w3-margin-top">
+            <div class="w3-col w3-container" style="width:35%">
+                <img src="~/Images/user.png" alt="Avatar" style="width:100%" class="w3-border w3-round w3-padding">                
+                <div class="w3-container w3-padding-16">
+                    <label><b>@Resource.Role: <i id="role_status"></i></b></label>
+                </div>
+            </div>            
+            <div class="w3-col w3-container" style="width:65%">
+                <form class="w3-container" id="editing_per_info_admin_form" style="display:none">
+                    <div class="w3-section">
+                        <label><b>@Resource.UserName</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" id="username_admin_form" disabled>
+                        <label><b>@Resource.FirstName</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_firstname" id="firstname_admin_form" required>
+                        <label><b>@Resource.LastName</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.LastName" id="lastname_admin_form" required>
+                        <label><b>@Resource.Patronymic</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_patronymic" id="patronymic_admin_form">
+                        <button class="w3-button w3-block w3-theme w3-section w3-padding" type="submit" id="save_admin_form">@Resource.Btn_save</button>
+                    </div>
+                </form>
+
+                <form class="w3-container" id="editing_per_info_customer_form" style="display:none">
+                    <div class="w3-section">
+                        <label><b>@Resource.UserName</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" id="username_customer_form" disabled>
+                        <label><b>@Resource.FirstName</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_firstname" id="firstname_customer_form" required>
+                        <label><b>@Resource.LastName</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.LastName" id="lastname_customer_form" required>
+                        <label><b>@Resource.Patronymic</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_patronymic" id="patronymic_customer_form">
+                        <label><b>@Resource.Date_of_birth</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_date_of_birth" id="dateofbirth_customer_form">
+                        <label><b>@Resource.Gender</b></label>
+                        <select id="customer_selected_gender" class="w3-input w3-border w3-margin-bottom">
+                            <option value="" hidden>@Resource.Ph_gender</option>
+                            <option>Мужчина</option>
+                            <option>Женщина</option>
+                        </select>
+                        <label><b>@Resource.Growth</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="@Resource.Ph_growth" id="growth_customer_form">
+                        <label><b>@Resource.Weight</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="@Resource.Ph_weight" id="weight_customer_form">
+                        <label><b>@Resource.Address</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="@Resource.Ph_Address" id="address_customer_form">
+                        <label><b>@Resource.Phone</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" id="phone_customer_form">
+                        <button class="w3-button w3-block w3-theme w3-section w3-padding" type="submit" id="save_customer_form">@Resource.Btn_save</button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button onclick="Close_modal_editing()" type="button" class="w3-button w3-red">@Resource.Btn_cancel</button>
+        </div>
+
+    </div>
+</div>
+

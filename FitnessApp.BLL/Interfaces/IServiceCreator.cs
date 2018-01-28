@@ -9,5 +9,8 @@ namespace FitnessApp.BLL.Interfaces
     public interface IServiceCreator
     {
         IAdministratorService CreateAdministratorService(string connection);
+        ICoachService CreateCoachService(string connection);
+        ICustomerService CreateCustomerService(string connection);
+        IManagerService CreateManagerService(string connection);
     }
 }

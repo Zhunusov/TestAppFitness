@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
   <data name="Add_coach" xml:space="preserve">
     <value>Добавление тренера</value>
   </data>
@@ -147,6 +150,9 @@
   <data name="Btn_register" xml:space="preserve">
     <value>Зарегистрироваться</value>
   </data>
+  <data name="Btn_save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
   <data name="Coach" xml:space="preserve">
     <value>Тренер</value>
   </data>
@@ -159,6 +165,9 @@
   <data name="Customers" xml:space="preserve">
     <value>Клиенты</value>
   </data>
+  <data name="Date_of_birth" xml:space="preserve">
+    <value>Дата рождения</value>
+  </data>
   <data name="Developer" xml:space="preserve">
     <value>Евгений Карасев</value>
   </data>
@@ -170,6 +179,12 @@
   </data>
   <data name="FirstName" xml:space="preserve">
     <value>Имя</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Пол</value>
+  </data>
+  <data name="Growth" xml:space="preserve">
+    <value>Рост</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Русский</value>
@@ -204,11 +219,26 @@
   <data name="Patronymic" xml:space="preserve">
     <value>Отчество</value>
   </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Телефон</value>
+  </data>
+  <data name="Ph_Address" xml:space="preserve">
+    <value>Укажите свой Адрес</value>
+  </data>
+  <data name="Ph_date_of_birth" xml:space="preserve">
+    <value>Укажите дату рождения</value>
+  </data>
   <data name="Ph_email" xml:space="preserve">
     <value>Укажите адрес электронной почты</value>
   </data>
   <data name="Ph_firstname" xml:space="preserve">
     <value>Укажите имя</value>
+  </data>
+  <data name="Ph_gender" xml:space="preserve">
+    <value>Укажите свой пол</value>
+  </data>
+  <data name="Ph_growth" xml:space="preserve">
+    <value>Укажите свой рост</value>
   </data>
   <data name="Ph_lastName" xml:space="preserve">
     <value>Укажите фамилию</value>
@@ -222,14 +252,23 @@
   <data name="Ph_patronymic" xml:space="preserve">
     <value>Укажите отчество</value>
   </data>
+  <data name="Ph_Phone" xml:space="preserve">
+    <value>Укажите свой Телефон</value>
+  </data>
   <data name="Ph_username" xml:space="preserve">
     <value>Введите имя пользователя</value>
+  </data>
+  <data name="Ph_weight" xml:space="preserve">
+    <value>Укажите свой вес</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>ПРОЕКТ "ФИТНЕС ЗАЛ"</value>
   </data>
   <data name="Role" xml:space="preserve">
     <value>Пользовательская роль</value>
+  </data>
+  <data name="Training_room" xml:space="preserve">
+    <value>Тренировочная комната</value>
   </data>
   <data name="Tt_close_menu" xml:space="preserve">
     <value>Закрыть меню</value>
@@ -238,12 +277,15 @@
     <value>Нажмите, чтобы пройти авторизацию</value>
   </data>
   <data name="Tt_personal_info" xml:space="preserve">
-    <value>Редактировать личные данные</value>
+    <value>Редактрование личных данных</value>
   </data>
   <data name="Tt_register" xml:space="preserve">
     <value>Нажмите, чтобы пройти регистрацию</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Имя пользователя</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Вес</value>
   </data>
 </root>

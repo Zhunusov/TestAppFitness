@@ -12,10 +12,16 @@ namespace FitnessApp.WEB.App_Start
 {
     public class Startup
     {
+        private const string dbName = "Fitness";
+
         IServiceCreator serviceCreator = new ServiceCreator();
         public void Configuration(IAppBuilder app)
         {
-            app.CreatePerOwinContext(CreateAdministratorService);            
+            app.CreatePerOwinContext(CreateAdministratorService);
+            app.CreatePerOwinContext(CreateCoachService);
+            app.CreatePerOwinContext(CreateCustomerService);
+            app.CreatePerOwinContext(CreateManagerService);  
+                     
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
@@ -26,8 +32,20 @@ namespace FitnessApp.WEB.App_Start
 
         private IAdministratorService CreateAdministratorService()
         {
-            return serviceCreator.CreateAdministratorService("Fitness");
+            return serviceCreator.CreateAdministratorService(dbName);
         }
-       
+        private ICoachService CreateCoachService()
+        {
+            return serviceCreator.CreateCoachService(dbName);
+        }
+        private ICustomerService CreateCustomerService()
+        {
+            return serviceCreator.CreateCustomerService(dbName);
+        }
+        private IManagerService CreateManagerService()
+        {
+            return serviceCreator.CreateManagerService(dbName);
+        }
+
     }
 }
