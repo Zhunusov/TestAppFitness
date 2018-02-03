@@ -98,6 +98,7 @@ namespace FitnessApp.BLL.Services
                     customerDTO.Patronymic = user.Patronymic;
                     customerDTO.Address = user.Address;
                     customerDTO.DateOfBirth = user.DateOfBirth;
+                    customerDTO.DateOfBirthString = ((DateTime)user.DateOfBirth).ToShortDateString();
                     customerDTO.Sex = user.Sex;
                     customerDTO.Phone = user.ApplicationUser.PhoneNumber;
                     customerDTO.Growth = user.Growth;

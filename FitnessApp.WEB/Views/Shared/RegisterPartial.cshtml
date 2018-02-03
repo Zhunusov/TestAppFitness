@@ -49,41 +49,5 @@
 </div>
 
 <script>
-    function compare_password() {
-        if (document.getElementById('psw').value !== document.getElementById('psw_confirm').value) {
-            alert("Ошибка: Поля 'Пароль' и 'Подтверждение пароля' не совпадают!");
-            document.getElementById('psw_confirm').focus();
-            return false;
-        }
-    }
-
-    $(function () {
-        $('#register_form').submit(function (e) {
-            e.preventDefault();
-            var data = {
-                Email: $('#email').val(),
-                Password: $('#psw').val(),
-                ConfirmPassword: $('#psw_confirm').val(),
-                FirstName: $('#firstname').val(),
-                LastName: $('#lastname').val(),
-                Patronymic: $('#patronymic').val(),                
-                Role: $('#selected_role').val()
-            };
-            $.ajax({
-                type: 'POST',
-                url: '/api/account/register',
-                contentType: 'application/json; charset=utf-8',
-                data: JSON.stringify(data),
-                success: function () {
-                    location.reload(true);
-                },
-                error: function (obj, error, status) {
-                    var response = jQuery.parseJSON(obj.responseText);
-                    if (response['ModelState']) {
-                        $.each(response['ModelState'], function (index, item) { alert(item + '\n'); });
-                    }
-                }
-            });
-        });
-    });
+   
 </script>

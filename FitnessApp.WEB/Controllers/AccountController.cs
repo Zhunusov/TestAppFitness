@@ -151,10 +151,68 @@ namespace FitnessApp.WEB.Controllers
                         }
                         break;
 
+                    case "Manager":
+                        break;
+
+                    case "Coach":
+                        break;
+
+
                     default: break;
                 }
             }
             return null;
+        }
+
+        [HttpPost]
+        public async Task<IHttpActionResult> UpdateUserInfo([FromBody] UpdateUserInfoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                switch (model.Role)
+                {
+                    case "Administrator":
+                        break;
+
+                    case "Customer":
+                        return await UpdateCustomerInfo(model);
+
+                    case "Manager":
+                        break;
+
+                    case "Coach":
+                        break;
+
+                    default:
+                        return BadRequest();
+                }
+            }
+            return BadRequest(ModelState);
+        }
+
+        private async Task<IHttpActionResult> UpdateCustomerInfo(UpdateUserInfoModel model)
+        {
+            CustomerDTO customerDTO = new CustomerDTO
+            {
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Patronymic = model.Patronymic,               
+                UserName = model.Email,
+                Role = model.Role,
+                Address = model.Address,
+                DateOfBirth = model.DateOfBirth,
+                Growth = model.Growth,
+                Weight = model.Weight,
+                Sex = model.Sex,
+                Phone = model.Phone,
+            };
+            OperationDetails operationDetails = await CustomerService.Update(customerDTO);
+            if (operationDetails.Succedeed)
+            {
+                return Ok();
+            }
+            return BadRequest();
         }
 
         private async Task SetInitialDataAsync()

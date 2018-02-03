@@ -30,28 +30,5 @@
 </div>  
 
 <script>
-    $(function () {
-        $('#login_form').submit(function (e) {
-            e.preventDefault();
-            var data = {
-                Email: $('#username_login').val(),
-                Password: $('#psw_login').val()
-            };
-            $.ajax({
-                type: 'POST',
-                url: '/api/account/login',
-                contentType: 'application/json; charset=utf-8',
-                data: JSON.stringify(data),
-                success: function () {
-                    location.reload(true);
-                },
-                error: function (obj, error, status) {
-                    var response = jQuery.parseJSON(obj.responseText);
-                    if (response['ModelState']['Account.login']) {
-                        $.each(response['ModelState']['Account.login'], function (index, item) { alert(item + '\n'); });
-                    }
-                }
-            });
-        });
-    });
+   
 </script>
