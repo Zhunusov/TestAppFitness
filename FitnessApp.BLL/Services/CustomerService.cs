@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FitnessApp.BLL.Interfaces;
 using FitnessApp.BLL.DTO;
 using FitnessApp.BLL.Infrastructure;
+using FitnessApp.BLL.Helpers;
 using FitnessApp.DAL.Interfaces;
 using FitnessApp.DAL.Entities;
 using Microsoft.AspNet.Identity;
@@ -47,6 +48,50 @@ namespace FitnessApp.BLL.Services
                 Database.CustomerRepository.Create(customer);
                 await Database.SaveAsync();
                 return new OperationDetails(true, "Регистрация успешно пройдена", "");
+            }
+            else
+            {
+                return new OperationDetails(false, "Пользователь с таким логином уже существует", "Email");
+            }
+        }
+
+        public async Task<OperationDetails> CreateByAdministrator(CustomerDTO customerDTO)
+        {
+            ApplicationUser user = await Database.UserManager.FindByEmailAsync(customerDTO.Email);
+            if (user == null)
+            {
+                user = new ApplicationUser { Email = customerDTO.Email, UserName = customerDTO.Email };
+                var result = await Database.UserManager.CreateAsync(user, customerDTO.Password);
+
+                if (result.Errors.Count() > 0)
+                    return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
+
+                await Database.UserManager.AddToRoleAsync(user.Id, customerDTO.Role);
+
+                Customer customer = new Customer
+                {
+                    Id = user.Id,
+                    FirstName = customerDTO.FirstName,
+                    LastName = customerDTO.LastName,
+                    Patronymic = customerDTO.Patronymic,
+                    DateOfBirth = customerDTO.DateOfBirth,
+                    Sex = customerDTO.Sex,
+                    Address = customerDTO.Address,
+                    Growth = customerDTO.Growth,
+                    Weight = customerDTO.Weight
+                };
+                Database.CustomerRepository.Create(customer);
+                await Database.SaveAsync();
+
+                customer = Database.CustomerRepository.Get(customerDTO.UserName);
+                if(user != null)
+                {
+                    Database.CustomerRepository.Update(customer);
+                    customer.ApplicationUser.PhoneNumber = customerDTO.Phone;
+                    await Database.SaveAsync();
+                }
+
+                return new OperationDetails(true, "Регистрация успешно осуществлена", "");
             }
             else
             {
@@ -150,6 +195,8 @@ namespace FitnessApp.BLL.Services
                     Patronymic = customer.Patronymic,
                     Address = customer.Address,
                     DateOfBirth = customer.DateOfBirth,
+                    DateOfBirthString = ((DateTime)customer.DateOfBirth).ToShortDateString(),
+                    Age = Age.GetAgeOfUser(customer.DateOfBirth),
                     Sex = customer.Sex,
                     Phone = customer.ApplicationUser.PhoneNumber,
                     Email = customer.ApplicationUser.Email,

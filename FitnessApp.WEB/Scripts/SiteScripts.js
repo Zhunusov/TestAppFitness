@@ -170,7 +170,7 @@ $(function () {
 });
 
 $(function () {
-    $("#dateofbirth_customer_form").datepicker({ maxDate: 0, dateFormat: "dd.mm.yy" });
+    $("#dateofbirth_customer_form, #dateofbirth_form_manager_by_admin, #dateofbirth_form_coach_by_admin, #dateofbirth_form_customer_by_admin").datepicker({ maxDate: 0, dateFormat: "dd.mm.yy" });
 });
 
 function open_sidebar() {
@@ -216,10 +216,11 @@ $(function () {
     });
 });
 
-function compare_password() {
-    if (document.getElementById('psw').value !== document.getElementById('psw_confirm').value) {
+function compare_password(item) {
+    if ($(item).closest("form.register-form").find("input.password").val() !== 
+        $(item).closest("form.register-form").find("input.password-confirm").val()) {
         alert("Ошибка: Поля 'Пароль' и 'Подтверждение пароля' не совпадают!");
-        document.getElementById('psw_confirm').focus();
+        $(item).focus();
         return false;
     }
 }
@@ -234,14 +235,6 @@ function change_to_logon_modal() {
     document.getElementById('logon_modal').style.display = 'block';
 }
 
-function compare_password() {
-    if (document.getElementById('psw').value !== document.getElementById('psw_confirm').value) {
-        alert("Ошибка: Поля 'Пароль' и 'Подтверждение пароля' не совпадают!");
-        document.getElementById('psw_confirm').focus();
-        return false;
-    }
-}
-
 $(function () {
     $('#register_form').submit(function (e) {
         e.preventDefault();
@@ -251,8 +244,7 @@ $(function () {
             ConfirmPassword: $('#psw_confirm').val(),
             FirstName: $('#firstname').val(),
             LastName: $('#lastname').val(),
-            Patronymic: $('#patronymic').val(),
-            Role: $('#selected_role').val()
+            Patronymic: $('#patronymic').val()
         };
         $.ajax({
             type: 'POST',
@@ -281,4 +273,56 @@ $(function () {
     });
 });
 
+
+//Administrator area
+
+$(function () {
+    $("#selected_role_register_by_admin").on("change", function () {
+        $("#register_form_customer_by_admin, #register_form_coach_by_admin, #register_form_manager_by_admin").css("display", "none");
+        $('#register_form_' + $("#selected_role_register_by_admin").val() + '_by_admin').css("display", "block");
+    });
+});
+
+$(function () {
+    $("#nav_add_customer").click(function () {
+        $("#register_form_customer_by_admin").css("display", "block");
+        $("#register_modal").css("display", "block");
+    });
+});
+
+$(function () {
+    $('#register_form_customer_by_admin').submit(function (e) {
+        e.preventDefault();
+        var data = {
+            Email: $('#email_form_customer_by_admin').val(),
+            Password: $('#psw_form_customer_by_admin').val(),
+            ConfirmPassword: $('#psw_confirm_form_customer_by_admin').val(),
+            FirstName: $('#firstname_form_customer_by_admin').val(),
+            LastName: $('#lastname_form_customer_by_admin').val(),
+            Patronymic: $('#patronymic_form_customer_by_admin').val(),
+            Role: $('#selected_role_register_by_admin').val(),
+            DateOfBirth: new Date(($('#dateofbirth_form_customer_by_admin').val()).replace(/(\d+).(\d+).(\d+)/, '$3/$2/$1')),
+            Gender: $('#customer_selected_gender_register_form').val(),
+            Growth: $('#growth_form_customer_by_admin').val(),
+            Weight: $("#weight_form_customer_by_admin").val(),
+            Address: $("#address_form_customer_by_admin").val(),
+            Phone: $("#phone_form_customer_by_admin").val()
+        };
+        $.ajax({
+            type: 'POST',
+            url: '/api/administrator/registercustomer',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data),
+            success: function () {
+                location.reload(true);
+            },
+            error: function (obj, error, status) {
+                var response = jQuery.parseJSON(obj.responseText);
+                if (response['ModelState']) {
+                    $.each(response['ModelState'], function (index, item) { alert(item + '\n'); });
+                }
+            }
+        });
+    });
+});
 

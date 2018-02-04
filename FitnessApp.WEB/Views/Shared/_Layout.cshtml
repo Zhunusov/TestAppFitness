@@ -58,6 +58,10 @@
     @if (Request.IsAuthenticated)
     {
         Html.RenderPartial("EditInfoPartial");
+
+        if(Roles.IsUserInRole(User.Identity.Name, "Administrator")){
+            Html.RenderPartial("RegisterPartial");
+        }
     }
     else
     {

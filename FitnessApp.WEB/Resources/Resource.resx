@@ -288,4 +288,13 @@
   <data name="Weight" xml:space="preserve">
     <value>Вес</value>
   </data>
+  <data name="Age" xml:space="preserve">
+    <value>Возраст</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
 </root>

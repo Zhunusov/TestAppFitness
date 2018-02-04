@@ -64,7 +64,7 @@
                                 <th></th>
                                 <th>Customer name</th>
                                 <th>Age</th>
-                                <th>Sex</th>
+                                <th>Gender</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -100,6 +100,47 @@
 </body>
 
 <script>
+    $(function () {
+        $("#nav_list_customers").click(function () {
+            $.ajax({
+                url: '/api/administrator/getallcustomers',
+                type: 'GET',
+                contentType: 'application/json; charset=utf-8',
+                success: function (customers) {
+                    var strResult = '<table class="w3-table w3-bordered w3-hoverable">' +
+                        '<thead>' +
+                            '<tr class="w3-light-grey">' +
+                                '<th></th>' +
+                                '<th>'+'@Resource.Customer'+'</th>' +
+                                '<th>'+'@Resource.Age'+'</th>' +
+                                '<th>'+'@Resource.Gender'+'</th>' +
+                                '<th></th>' +
+                            '</tr>' +
+                        '</thead>'+
+                    '</table>';
+                    $('#data_result').append(strResult);
+                    for (var customer in customers) {
+                        strResult = '<tr style="cursor:pointer">' +
+                            '<td>' +
+                                '<img src="/Images/user.png" class="w3-circle" alt="Avatar" style="height:35px;width:35px;"/>' +
+                            '</td>' +
+                            '<td>' + customers[customer].LastName + ' ' + customers[customer].FirstName + ' ' + customers[customer].Patronymic + '</td>' +
+                            '<td>' + customers[customer].Age + '</td>' +
+                            '<td>' + customers[customer].Sex + '</td>' +
+                            '<td>' +
+                                '<a class="w3-button w3-red w3-round w3-small w3-right w3-hover-red w3-hover-opacity">'+'@Resource.Delete'+'</a>' +
+                                '<a class="w3-button w3-blue w3-round w3-small w3-right w3-hover-blue w3-hover-opacity">' + '@Resource.Edit' + '</a>' +
+                            '</td>' +
+                        '</tr>';
 
+                        $('#data_result').find('thead').append(strResult);
+                    }
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        })
+    });
 </script>
 
