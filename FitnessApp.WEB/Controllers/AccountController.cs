@@ -18,7 +18,7 @@ namespace FitnessApp.WEB.Controllers
     [Culture]
     [Authorize(Roles = "Administrator, Manager, Customer, Coach")]
     public class AccountController : ApiController
-    {        
+    {
         private IAdministratorService AdministratorService
         {
             get
@@ -58,7 +58,7 @@ namespace FitnessApp.WEB.Controllers
                 return Request.GetOwinContext().GetUserManager<IManagerService>();
             }
         }
-
+        
         [HttpGet]
         public IHttpActionResult Logout()
         {

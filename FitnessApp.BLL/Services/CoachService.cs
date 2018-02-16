@@ -9,6 +9,7 @@ using FitnessApp.BLL.Infrastructure;
 using FitnessApp.DAL.Interfaces;
 using FitnessApp.DAL.Entities;
 using Microsoft.AspNet.Identity;
+using FitnessApp.BLL.Helpers;
 
 namespace FitnessApp.BLL.Services
 {
@@ -41,7 +42,9 @@ namespace FitnessApp.BLL.Services
                     LastName = coachDTO.LastName,
                     Patronymic = coachDTO.Patronymic,                   
                     DateOfBirth = coachDTO.DateOfBirth,
-                    Sex = coachDTO.Sex,                                         
+                    Sex = coachDTO.Sex,
+                    Address = coachDTO.Address,
+                    Phone = coachDTO.Phone                                                         
                 };
 
                 Database.CoachRepository.Create(coach);
@@ -66,7 +69,7 @@ namespace FitnessApp.BLL.Services
                 user.Address = coachDTO.Address;
                 user.DateOfBirth = coachDTO.DateOfBirth;
                 user.Sex = coachDTO.Sex;
-                user.ApplicationUser.PhoneNumber = coachDTO.Phone;
+                user.Phone = coachDTO.Phone;
 
                 await Database.SaveAsync();
                 return new OperationDetails(true, "Данные пользователя обновлены", "");
@@ -99,7 +102,7 @@ namespace FitnessApp.BLL.Services
                     coachDTO.Address = user.Address;
                     coachDTO.DateOfBirth = user.DateOfBirth;
                     coachDTO.Sex = user.Sex;
-                    coachDTO.Phone = user.ApplicationUser.PhoneNumber;
+                    coachDTO.Phone = user.Phone;
                     coachDTO.UserName = user.ApplicationUser.UserName;
                     coachDTO.Role = role.Name;                    
 
@@ -147,12 +150,19 @@ namespace FitnessApp.BLL.Services
                     Patronymic = coach.Patronymic,
                     Address = coach.Address,
                     DateOfBirth = coach.DateOfBirth,
+                    DateOfBirthString = coach.DateOfBirth != null ? ((DateTime)coach.DateOfBirth).ToShortDateString() : null,
+                    Age = Age.GetAgeOfUser(coach.DateOfBirth),
                     Sex = coach.Sex,
-                    Phone = coach.ApplicationUser.PhoneNumber,
+                    Phone = coach.Phone,
                     Email = coach.ApplicationUser.Email,
                     UserName = coach.ApplicationUser.UserName,
                     Role = await GetRole(coach.ApplicationUser.UserName)
                 };
+
+                var manager = Database.ManagerRepository.Find(_ => _.Id == coach.ManagerId).FirstOrDefault();
+                if (manager != null)
+                    coachDTO.Manager = $"{manager.LastName} {manager.FirstName} {manager.Patronymic} ({manager.ApplicationUser.UserName})";
+
                 coachesDTO.Add(coachDTO);
             }
             return coachesDTO;
@@ -176,6 +186,63 @@ namespace FitnessApp.BLL.Services
             }
             return new OperationDetails(false, "Пользователь не найден", "");
         }
+
+        public async Task<ICollection<CoachDTO>> GetFilteredCoaches(int? ageParameter, int? genderParameter)
+        {
+            List<CoachDTO> coachesDTO = new List<CoachDTO>();
+           
+            if (genderParameter != null && ageParameter != null)
+            {
+                var genderParameters = dictionaryGenderParameters[(int)genderParameter];
+                var ageParameters = dictionaryAgeParameters[(int)ageParameter];
+
+                var coaches = Database.CoachRepository.Find(_=>_.Sex == genderParameters[0] || _.Sex == genderParameters[1]);
+                foreach (var coach in coaches)
+                {
+                    CoachDTO coachDTO = new CoachDTO
+                    {
+                        Id = coach.Id,
+                        FirstName = coach.FirstName,
+                        LastName = coach.LastName,
+                        Patronymic = coach.Patronymic,
+                        Address = coach.Address,
+                        DateOfBirth = coach.DateOfBirth,
+                        DateOfBirthString = coach.DateOfBirth != null ? ((DateTime)coach.DateOfBirth).ToShortDateString() : null,
+                        Age = Age.GetAgeOfUser(coach.DateOfBirth),
+                        Sex = coach.Sex,
+                        Phone = coach.Phone,
+                        Email = coach.ApplicationUser.Email,
+                        UserName = coach.ApplicationUser.UserName,
+                        Role = await GetRole(coach.ApplicationUser.UserName)
+                    };
+
+                    var manager = Database.ManagerRepository.Find(_ => _.Id == coach.ManagerId).FirstOrDefault();
+                    if (manager != null)
+                        coachDTO.Manager = $"{manager.LastName} {manager.FirstName} {manager.Patronymic} ({manager.ApplicationUser.UserName})";
+
+                    if(coachDTO.Age >= ageParameters[0] && coachDTO.Age <= ageParameters[1])
+                        coachesDTO.Add(coachDTO);
+                }
+                return coachesDTO;
+            }
+            return null;
+        }
+
+        private Dictionary<int, string[]> dictionaryGenderParameters = new Dictionary<int, string[]>
+        {
+            {0, new string []{"мужчина", "женщина"}},
+            {1, new string []{"мужчина", "мужчина"}},
+            {2, new string []{"женщина", "женщина"}}
+        };
+
+        private Dictionary<int, int[]> dictionaryAgeParameters = new Dictionary<int, int[]>
+        {
+            {0, new int []{0, 100}},
+            {1, new int []{20, 25}},
+            {2, new int []{25, 30}},
+            {3, new int []{30, 35}},
+            {4, new int []{35, 100}},
+        };
 
         public void Dispose()
         {

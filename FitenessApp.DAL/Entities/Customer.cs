@@ -18,6 +18,7 @@ namespace FitnessApp.DAL.Entities
         public int? Weight { get; set; }
         public int? Growth { get; set; }
         public string Sex { get; set; }
+        public string Phone { get; set; }
 
         public virtual ApplicationUser ApplicationUser { get; set; }
         [ForeignKey("Coach")]

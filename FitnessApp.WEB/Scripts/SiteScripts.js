@@ -270,9 +270,9 @@ $(function () {
     $(".close-modal").click(function (e) {
         e.preventDefault();        
         $("#mySidebar").css("zIndex", "4");
+        $(this).closest(".w3-modal").css("display", "none");
     });
 });
-
 
 //Administrator area
 
@@ -325,4 +325,32 @@ $(function () {
         });
     });
 });
+
+
+//Customer area
+
+function view_profile(item) {    
+    $("#profile_UserName").text($(item).find(".profile_UserName_CA").first().text());
+    $("#profile_FirstName").text($(item).find(".profile_FirstName_CA").first().text());
+    $("#profile_LastName").text($(item).find(".profile_LastName_CA").first().text());
+    $("#profile_Patronymic").text($(item).find(".profile_Patronymic_CA").first().text());
+    $("#profile_Age").text($(item).find(".profile_Age_CA").first().text());
+    $("#profile_Gender").text($(item).find(".profile_Sex_CA").first().text());
+    $("#profile_Phone").text($(item).find(".profile_Phone_CA").first().text());
+    $("#profile_Manager").text($(item).find(".profile_Manager_CA").first().text());
+    $("#profile_role_status").text($(item).find(".profile_Role_CA").first().text());
+    
+    $("#mySidebar").css("zIndex", "0");
+    $("#profile_modal").css("display", "block");
+}
+
+function toggle_advanced_search(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
 

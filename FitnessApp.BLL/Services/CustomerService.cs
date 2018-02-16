@@ -42,7 +42,11 @@ namespace FitnessApp.BLL.Services
                     LastName = customerDTO.LastName,
                     Patronymic = customerDTO.Patronymic,                    
                     DateOfBirth = customerDTO.DateOfBirth,
-                    Sex = customerDTO.Sex,                    
+                    Sex = customerDTO.Sex,
+                    Address = customerDTO.Address,
+                    Growth = customerDTO.Growth,
+                    Weight = customerDTO.Weight,
+                    Phone = customerDTO.Phone
                 };
 
                 Database.CustomerRepository.Create(customer);
@@ -78,7 +82,8 @@ namespace FitnessApp.BLL.Services
                     Sex = customerDTO.Sex,
                     Address = customerDTO.Address,
                     Growth = customerDTO.Growth,
-                    Weight = customerDTO.Weight
+                    Weight = customerDTO.Weight,
+                    Phone = customerDTO.Phone
                 };
                 Database.CustomerRepository.Create(customer);
                 await Database.SaveAsync();
@@ -87,7 +92,7 @@ namespace FitnessApp.BLL.Services
                 if(user != null)
                 {
                     Database.CustomerRepository.Update(customer);
-                    customer.ApplicationUser.PhoneNumber = customerDTO.Phone;
+                    customer.Phone = customerDTO.Phone;
                     await Database.SaveAsync();
                 }
 
@@ -112,7 +117,7 @@ namespace FitnessApp.BLL.Services
                 user.Sex = customerDTO.Sex;
                 user.Growth = customerDTO.Growth;
                 user.Weight = customerDTO.Weight;
-                user.ApplicationUser.PhoneNumber = customerDTO.Phone;
+                user.Phone = customerDTO.Phone;
 
                 await Database.SaveAsync();
                 return new OperationDetails(true, "Данные пользователя обновлены", "");
@@ -143,9 +148,9 @@ namespace FitnessApp.BLL.Services
                     customerDTO.Patronymic = user.Patronymic;
                     customerDTO.Address = user.Address;
                     customerDTO.DateOfBirth = user.DateOfBirth;
-                    customerDTO.DateOfBirthString = ((DateTime)user.DateOfBirth).ToShortDateString();
+                    customerDTO.DateOfBirthString = user.DateOfBirth != null ? ((DateTime)user.DateOfBirth).ToShortDateString() : null;
                     customerDTO.Sex = user.Sex;
-                    customerDTO.Phone = user.ApplicationUser.PhoneNumber;
+                    customerDTO.Phone = user.Phone;
                     customerDTO.Growth = user.Growth;
                     customerDTO.Weight = user.Weight;
                     customerDTO.UserName = user.ApplicationUser.UserName;
@@ -195,10 +200,10 @@ namespace FitnessApp.BLL.Services
                     Patronymic = customer.Patronymic,
                     Address = customer.Address,
                     DateOfBirth = customer.DateOfBirth,
-                    DateOfBirthString = ((DateTime)customer.DateOfBirth).ToShortDateString(),
+                    DateOfBirthString = customer.DateOfBirth != null ? ((DateTime)customer.DateOfBirth).ToShortDateString() : null,
                     Age = Age.GetAgeOfUser(customer.DateOfBirth),
                     Sex = customer.Sex,
-                    Phone = customer.ApplicationUser.PhoneNumber,
+                    Phone = customer.Phone,
                     Email = customer.ApplicationUser.Email,
                     Growth = customer.Growth,
                     Weight = customer.Weight,

@@ -38,6 +38,32 @@
                         <li><a id="title_main_cont_level_2"></a></li>
                     </ul>
                 </div>
+                <button onclick="toggle_advanced_search('advanced_search_content')" class="w3-hide w3-button w3-theme w3-small w3-margin-bottom" id="advanced_search_toggle_btn">@Resource.Advanced_search</button>
+                <div id="advanced_search_content" class="w3-hide w3-container w3-light-grey w3-margin-bottom">
+                    <div class="w3-row">
+                        <div class="w3-col w3-third">
+                            <select id="advanced_search_gender" class="w3-input w3-border w3-margin-bottom w3-margin">
+                                <option value="0" hidden>@Resource.Choose_gender</option>
+                                <option value="0">Любой</option>
+                                <option value="1">Мужчина</option>
+                                <option value="2">Женщина</option>
+                            </select>
+                        </div>
+                        <div class="w3-col w3-third">
+                            <select id="advanced_search_age" class="w3-input w3-border w3-margin-bottom w3-margin">
+                                <option value="0" hidden>@Resource.Choose_age</option>
+                                <option value="0">Любой</option>
+                                <option value="1">20 - 25 лет</option>
+                                <option value="2">25 - 30 лет</option>
+                                <option value="3">30 - 35 лет</option>
+                                <option value="4">старше 35 лет</option>
+                            </select>
+                        </div>
+                        <div class="w3-col w3-third">
+                            <button class="w3-button w3-green w3-small w3-round w3-right w3-margin" id="advanced_search_btn">@Resource.Search</button>
+                        </div>
+                    </div>
+                </div>
                 <div id="data_result">
                    
                 </div>
@@ -45,4 +71,113 @@
         </div>
     </div>
 </body>
+
+<script>
+    $(function () {
+        $("#nav_list_coaches").click(function () {
+            $('#data_result').empty();
+            $.ajax({
+                url: '/api/customer/getallcoaches',
+                type: 'GET',
+                contentType: 'application/json; charset=utf-8',
+                success: function (coaches) {
+                    var strResult = '<table class="w3-table w3-bordered w3-hoverable">' +
+                        '<thead>' +
+                            '<tr class="w3-light-grey">' +
+                                '<th></th>' +
+                                '<th>'+'@Resource.Coach'+'</th>' +
+                                '<th>'+'@Resource.Age'+'</th>' +
+                                '<th>' + '@Resource.Gender' + '</th>' +     
+                                '<th></th>'
+                            '</tr>' +
+                        '</thead>'+
+                    '</table>';
+                    $('#data_result').append(strResult);
+                    for (var coach in coaches) {
+                        strResult = '<tr style="cursor:pointer" title="'+'@Resource.View_profile'+'" onclick="view_profile(this)">' +
+                            '<td>' +
+                                '<img src="/Images/user.png" class="w3-circle" alt="Avatar" style="height:35px;width:35px;"/>' +
+                            '</td>' +
+                            '<td>' + coaches[coach].LastName + ' ' + coaches[coach].FirstName + ' ' + coaches[coach].Patronymic + '</td>' +
+                            '<td class="profile_Age_CA">' + coaches[coach].Age + '</td>' +
+                            '<td class="profile_Sex_CA">' + coaches[coach].Sex + '</td>' +
+                            '<td>' +                                
+                                '<a class="w3-button w3-theme w3-round w3-small w3-right w3-hover-blue w3-hover-opacity">' + '@Resource.Shoose_him_her' + '</a>' +
+                            '</td>' +
+                            '<td class="w3-hide profile_UserName_CA">' + coaches[coach].UserName + '</td>' +
+                            '<td class="w3-hide profile_FirstName_CA">' + coaches[coach].FirstName + '</td>' +
+                            '<td class="w3-hide profile_LastName_CA">' + coaches[coach].LastName + '</td>' +
+                            '<td class="w3-hide profile_Patronymic_CA">' + coaches[coach].Patronymic + '</td>' +
+                            '<td class="w3-hide profile_Phone_CA">' + coaches[coach].Phone + '</td>' +
+                            '<td class="w3-hide profile_Manager_CA">' + coaches[coach].Manager + '</td>' +
+                            '<td class="w3-hide profile_Role_CA">' + coaches[coach].Role + '</td>' +
+                        '</tr>';
+
+                        $('#data_result').find('thead').append(strResult);
+                    }
+
+                    $("#advanced_search_toggle_btn").addClass("w3-show");
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        })
+    });
+
+    $(function () {
+        $('#advanced_search_btn').click(function (e) {
+            $('#data_result').empty();
+            var data = {
+                AgeParameter: $('#advanced_search_age').val(),
+                GenderParameter: $('#advanced_search_gender').val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/api/customer/searchcoaches',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data),
+                success: function (coaches) {
+                    var strResult = '<table class="w3-table w3-bordered w3-hoverable">' +
+                        '<thead>' +
+                            '<tr class="w3-light-grey">' +
+                                '<th></th>' +
+                                '<th>' + '@Resource.Coach' + '</th>' +
+                                '<th>' + '@Resource.Age' + '</th>' +
+                                '<th>' + '@Resource.Gender' + '</th>' +
+                                '<th></th>'
+                            '</tr>' +
+                        '</thead>' +
+                    '</table>';
+                    $('#data_result').append(strResult);
+                    for (var coach in coaches) {
+                        strResult = '<tr style="cursor:pointer" title="' + '@Resource.View_profile' + '" onclick="view_profile(this)">' +
+                            '<td>' +
+                                '<img src="/Images/user.png" class="w3-circle" alt="Avatar" style="height:35px;width:35px;"/>' +
+                            '</td>' +
+                            '<td>' + coaches[coach].LastName + ' ' + coaches[coach].FirstName + ' ' + coaches[coach].Patronymic + '</td>' +
+                            '<td class="profile_Age_CA">' + coaches[coach].Age + '</td>' +
+                            '<td class="profile_Sex_CA">' + coaches[coach].Sex + '</td>' +
+                            '<td>' +
+                                '<a class="w3-button w3-theme w3-round w3-small w3-right w3-hover-blue w3-hover-opacity">' + '@Resource.Shoose_him_her' + '</a>' +
+                            '</td>' +
+                            '<td class="w3-hide profile_UserName_CA">' + coaches[coach].UserName + '</td>' +
+                            '<td class="w3-hide profile_FirstName_CA">' + coaches[coach].FirstName + '</td>' +
+                            '<td class="w3-hide profile_LastName_CA">' + coaches[coach].LastName + '</td>' +
+                            '<td class="w3-hide profile_Patronymic_CA">' + coaches[coach].Patronymic + '</td>' +
+                            '<td class="w3-hide profile_Phone_CA">' + coaches[coach].Phone + '</td>' +
+                            '<td class="w3-hide profile_Manager_CA">' + coaches[coach].Manager + '</td>' +
+                            '<td class="w3-hide profile_Role_CA">' + coaches[coach].Role + '</td>' +
+                        '</tr>';
+
+                        $('#data_result').find('thead').append(strResult);
+                    }
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        });
+    });
+</script>
 

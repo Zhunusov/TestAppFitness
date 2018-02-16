@@ -9,6 +9,6 @@ namespace FitnessApp.BLL.Interfaces
 {
     public interface ICoachService : IUserService<CoachDTO>
     {
-
+        Task<ICollection<CoachDTO>> GetFilteredCoaches(int? ageParameter, int? genderParameter);
     }
 }

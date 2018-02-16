@@ -39,7 +39,9 @@ namespace FitnessApp.BLL.Services
                     FirstName = managerDTO.FirstName,
                     LastName = managerDTO.LastName,
                     Patronymic = managerDTO.Patronymic,
-                    DateOfBirth = managerDTO.DateOfBirth,                    
+                    DateOfBirth = managerDTO.DateOfBirth, 
+                    Address = managerDTO.Address,
+                    Phone = managerDTO.Phone
                 };
 
                 Database.ManagerRepository.Create(manager);
@@ -62,7 +64,7 @@ namespace FitnessApp.BLL.Services
                 user.Patronymic = managerDTO.Patronymic;
                 user.Address = managerDTO.Address;
                 user.DateOfBirth = managerDTO.DateOfBirth;               
-                user.ApplicationUser.PhoneNumber = managerDTO.Phone;
+                user.Phone = managerDTO.Phone;
 
                 await Database.SaveAsync();
                 return new OperationDetails(true, "Данные пользователя обновлены", "");
@@ -93,7 +95,7 @@ namespace FitnessApp.BLL.Services
                     managerDTO.Patronymic = user.Patronymic;
                     managerDTO.Address = user.Address;
                     managerDTO.DateOfBirth = user.DateOfBirth;
-                    managerDTO.Phone = user.ApplicationUser.PhoneNumber;
+                    managerDTO.Phone = user.Phone;
                     managerDTO.UserName = user.ApplicationUser.UserName;
                     managerDTO.Role = role.Name;
 
@@ -140,7 +142,7 @@ namespace FitnessApp.BLL.Services
                     Patronymic = manager.Patronymic,
                     Address = manager.Address,
                     DateOfBirth = manager.DateOfBirth,                    
-                    Phone = manager.ApplicationUser.PhoneNumber,
+                    Phone = manager.Phone,
                     Email = manager.ApplicationUser.Email,
                     UserName = manager.ApplicationUser.UserName,
                     Role = await GetRole(manager.ApplicationUser.UserName)

@@ -97,6 +97,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Расширенный поиск.
+        /// </summary>
+        public static string Advanced_search {
+            get {
+                return ResourceManager.GetString("Advanced_search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Возраст.
         /// </summary>
         public static string Age {
@@ -174,6 +183,33 @@ namespace Resources {
         public static string Btn_save {
             get {
                 return ResourceManager.GetString("Btn_save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выберите возраст .
+        /// </summary>
+        public static string Choose_age {
+            get {
+                return ResourceManager.GetString("Choose_age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выберите пол.
+        /// </summary>
+        public static string Choose_gender {
+            get {
+                return ResourceManager.GetString("Choose_gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Закрыть.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
             }
         }
         
@@ -367,6 +403,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Мужчина.
+        /// </summary>
+        public static string Men {
+            get {
+                return ResourceManager.GetString("Men", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пароль.
         /// </summary>
         public static string Password {
@@ -538,6 +583,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Поиск.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выбрать его/ее.
+        /// </summary>
+        public static string Shoose_him_her {
+            get {
+                return ResourceManager.GetString("Shoose_him_her", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Тренировочная комната.
         /// </summary>
         public static string Training_room {
@@ -592,11 +655,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Просмотреть профиль.
+        /// </summary>
+        public static string View_profile {
+            get {
+                return ResourceManager.GetString("View_profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Вес.
         /// </summary>
         public static string Weight {
             get {
                 return ResourceManager.GetString("Weight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Женщина.
+        /// </summary>
+        public static string Woman {
+            get {
+                return ResourceManager.GetString("Woman", resourceCulture);
             }
         }
     }

@@ -1,0 +1,34 @@
+﻿@using Resources;
+
+<div id="profile_modal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="width:700px">
+
+        <div class="w3-center">
+            <br>
+            <span class="w3-button w3-xlarge w3-transparent w3-display-topright close-modal" title="Close Modal">×</span>
+        </div>
+
+        <div class="w3-row w3-margin-top">
+            <div class="w3-col w3-container" style="width:40%">
+                <img src="~/Images/user.png" alt="Avatar" style="width:100%" class="w3-border w3-round w3-padding">
+            </div>
+            <div class="w3-col w3-container" style="width:60%">
+                <label><b>@Resource.Role:</b> <text id="profile_role_status"></text></label><br />
+                <label><b>@Resource.UserName :</b> <text id="profile_UserName"></text></label><br />
+                <label><b>@Resource.FirstName :</b> <text id="profile_FirstName"></text></label><br />
+                <label><b>@Resource.LastName :</b> <text id="profile_LastName"></text></label><br />
+                <label><b>@Resource.Patronymic :</b> <text id="profile_Patronymic"></text></label><br />
+                <label><b>@Resource.Age :</b> <text id="profile_Age"></text></label><br />
+                <label><b>@Resource.Gender :</b> <text id="profile_Gender"></text></label><br />
+                <label><b>@Resource.Phone :</b> <text id="profile_Phone"></text></label><br />
+                <label><b>@Resource.Manager :</b> <text id="profile_Manager"></text></label><br />
+            </div>
+        </div>
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button type="button" class="w3-button w3-red close-modal w3-right">@Resource.Close</button>
+        </div>
+
+    </div>
+</div>
+

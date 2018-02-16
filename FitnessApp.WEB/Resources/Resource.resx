@@ -297,4 +297,31 @@
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>
+  <data name="Advanced_search" xml:space="preserve">
+    <value>Расширенный поиск</value>
+  </data>
+  <data name="Choose_age" xml:space="preserve">
+    <value>Выберите возраст </value>
+  </data>
+  <data name="Choose_gender" xml:space="preserve">
+    <value>Выберите пол</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="Men" xml:space="preserve">
+    <value>Мужчина</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="Shoose_him_her" xml:space="preserve">
+    <value>Выбрать его/ее</value>
+  </data>
+  <data name="View_profile" xml:space="preserve">
+    <value>Просмотреть профиль</value>
+  </data>
+  <data name="Woman" xml:space="preserve">
+    <value>Женщина</value>
+  </data>
 </root>
