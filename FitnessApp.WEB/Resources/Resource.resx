@@ -324,4 +324,73 @@
   <data name="Woman" xml:space="preserve">
     <value>Женщина</value>
   </data>
+  <data name="Aim" xml:space="preserve">
+    <value>Цель</value>
+  </data>
+  <data name="ForWhom" xml:space="preserve">
+    <value>Для кого</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Уровень</value>
+  </data>
+  <data name="My_trainings" xml:space="preserve">
+    <value>Мои тренировки</value>
+  </data>
+  <data name="Trainings" xml:space="preserve">
+    <value>Тренировки</value>
+  </data>
+  <data name="Trainings_templates" xml:space="preserve">
+    <value>Шаблоны тренировок</value>
+  </data>
+  <data name="Training_generator" xml:space="preserve">
+    <value>Генератор тренировки</value>
+  </data>
+  <data name="View_training_details" xml:space="preserve">
+    <value>Открыть подробную информацию о тренировке</value>
+  </data>
+  <data name="Add_to_my_trainings" xml:space="preserve">
+    <value>Добавить в мои тренировки</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Блог</value>
+  </data>
+  <data name="DaysPerWeek" xml:space="preserve">
+    <value>Тренировочных дней в неделе</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>Часов</value>
+  </data>
+  <data name="Iterations" xml:space="preserve">
+    <value>Итерации</value>
+  </data>
+  <data name="LoadDescription" xml:space="preserve">
+    <value>Описание упражнения</value>
+  </data>
+  <data name="Loads" xml:space="preserve">
+    <value>Упражнения</value>
+  </data>
+  <data name="LoadTitle" xml:space="preserve">
+    <value>Название упражнения</value>
+  </data>
+  <data name="My_coaches" xml:space="preserve">
+    <value>Мои тренеры</value>
+  </data>
+  <data name="My_raiting" xml:space="preserve">
+    <value>Мои рейтинг</value>
+  </data>
+  <data name="Raitings" xml:space="preserve">
+    <value>Рейтинги</value>
+  </data>
+  <data name="Series" xml:space="preserve">
+    <value>Подходы</value>
+  </data>
+  <data name="Top10" xml:space="preserve">
+    <value>ТОП 10 фитнесс зала</value>
+  </data>
+  <data name="TrainingDuration" xml:space="preserve">
+    <value>Длительность тренировки</value>
+  </data>
+  <data name="WeekDuration" xml:space="preserve">
+    <value>Продолжительность в неделях</value>
+  </data>
 </root>

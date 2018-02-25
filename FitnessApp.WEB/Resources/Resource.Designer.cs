@@ -88,6 +88,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавить в мои тренировки.
+        /// </summary>
+        public static string Add_to_my_trainings {
+            get {
+                return ResourceManager.GetString("Add_to_my_trainings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Адрес.
         /// </summary>
         public static string Address {
@@ -115,11 +124,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Цель.
+        /// </summary>
+        public static string Aim {
+            get {
+                return ResourceManager.GetString("Aim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пожалуйста, авторизуйтесь, чтобы получить полный доступ к сайту.
         /// </summary>
         public static string Authorization_ask {
             get {
                 return ResourceManager.GetString("Authorization_ask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Блог.
+        /// </summary>
+        public static string Blog {
+            get {
+                return ResourceManager.GetString("Blog", resourceCulture);
             }
         }
         
@@ -259,6 +286,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Тренировочных дней в неделе.
+        /// </summary>
+        public static string DaysPerWeek {
+            get {
+                return ResourceManager.GetString("DaysPerWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Удалить.
         /// </summary>
         public static string Delete {
@@ -313,6 +349,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Для кого.
+        /// </summary>
+        public static string ForWhom {
+            get {
+                return ResourceManager.GetString("ForWhom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пол.
         /// </summary>
         public static string Gender {
@@ -331,6 +376,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Часов.
+        /// </summary>
+        public static string Hours {
+            get {
+                return ResourceManager.GetString("Hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Итерации.
+        /// </summary>
+        public static string Iterations {
+            get {
+                return ResourceManager.GetString("Iterations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Русский.
         /// </summary>
         public static string Language {
@@ -345,6 +408,15 @@ namespace Resources {
         public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Уровень.
+        /// </summary>
+        public static string Level {
+            get {
+                return ResourceManager.GetString("Level", resourceCulture);
             }
         }
         
@@ -372,6 +444,33 @@ namespace Resources {
         public static string List_managers {
             get {
                 return ResourceManager.GetString("List_managers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Описание упражнения.
+        /// </summary>
+        public static string LoadDescription {
+            get {
+                return ResourceManager.GetString("LoadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Упражнения.
+        /// </summary>
+        public static string Loads {
+            get {
+                return ResourceManager.GetString("Loads", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Название упражнения.
+        /// </summary>
+        public static string LoadTitle {
+            get {
+                return ResourceManager.GetString("LoadTitle", resourceCulture);
             }
         }
         
@@ -408,6 +507,33 @@ namespace Resources {
         public static string Men {
             get {
                 return ResourceManager.GetString("Men", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Мои тренеры.
+        /// </summary>
+        public static string My_coaches {
+            get {
+                return ResourceManager.GetString("My_coaches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Мои рейтинг.
+        /// </summary>
+        public static string My_raiting {
+            get {
+                return ResourceManager.GetString("My_raiting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Мои тренировки.
+        /// </summary>
+        public static string My_trainings {
+            get {
+                return ResourceManager.GetString("My_trainings", resourceCulture);
             }
         }
         
@@ -574,6 +700,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Рейтинги.
+        /// </summary>
+        public static string Raitings {
+            get {
+                return ResourceManager.GetString("Raitings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Пользовательская роль.
         /// </summary>
         public static string Role {
@@ -592,6 +727,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Подходы.
+        /// </summary>
+        public static string Series {
+            get {
+                return ResourceManager.GetString("Series", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Выбрать его/ее.
         /// </summary>
         public static string Shoose_him_her {
@@ -601,11 +745,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на ТОП 10 фитнесс зала.
+        /// </summary>
+        public static string Top10 {
+            get {
+                return ResourceManager.GetString("Top10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Генератор тренировки.
+        /// </summary>
+        public static string Training_generator {
+            get {
+                return ResourceManager.GetString("Training_generator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Тренировочная комната.
         /// </summary>
         public static string Training_room {
             get {
                 return ResourceManager.GetString("Training_room", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Длительность тренировки.
+        /// </summary>
+        public static string TrainingDuration {
+            get {
+                return ResourceManager.GetString("TrainingDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Тренировки.
+        /// </summary>
+        public static string Trainings {
+            get {
+                return ResourceManager.GetString("Trainings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Шаблоны тренировок.
+        /// </summary>
+        public static string Trainings_templates {
+            get {
+                return ResourceManager.GetString("Trainings_templates", resourceCulture);
             }
         }
         
@@ -660,6 +849,24 @@ namespace Resources {
         public static string View_profile {
             get {
                 return ResourceManager.GetString("View_profile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Открыть подробную информацию о тренировке.
+        /// </summary>
+        public static string View_training_details {
+            get {
+                return ResourceManager.GetString("View_training_details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Продолжительность в неделях.
+        /// </summary>
+        public static string WeekDuration {
+            get {
+                return ResourceManager.GetString("WeekDuration", resourceCulture);
             }
         }
         

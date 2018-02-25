@@ -9,12 +9,21 @@
         <script>
             var strResult = '<a class="w3-bar-item w3-button w3-hide-medium w3-hover-white w3-padding-16 my-nav-head" href="javascript:void(0)" onclick=' + "show_nav(this,'menuCoaches')" + '>' + '@Resource.Coaches' + '</a>'
             $('#main_menu').append(strResult);
+            strResult = '<a class="w3-bar-item w3-button w3-hide-medium w3-hover-white w3-padding-16 my-nav-head" href="javascript:void(0)" onclick=' + "show_nav(this,'menuTrainings')" + '>' + '@Resource.Trainings' + '</a>'
+            $('#main_menu').append(strResult);
+            strResult = '<a class="w3-bar-item w3-button w3-hide-medium w3-hover-white w3-padding-16 my-nav-head" href="javascript:void(0)" onclick=' + "show_nav(this,'menuRaitings')" + '>' + '@Resource.Raitings' + '</a>'
+            $('#main_menu').append(strResult);
+            strResult = '<a class="w3-bar-item w3-button w3-hide-medium w3-hover-white w3-padding-16 my-nav-head" href="javascript:void(0)" onclick=' + "show_nav(this,'menuBlog')" + '>' + '@Resource.Blog' + '</a>'
+            $('#main_menu').append(strResult);
         </script>
 
         <div class="w3-sidebar w3-bar-block w3-collapse w3-animate-left" style="z-index:3;width:270px;max-height:350px" id="mySidebar">
 
             <div class="w3-bar w3-hide-large w3-large">               
-                <a href="javascript:void(0)" onclick="show_nav(this, 'menuCoaches')" class="w3-bar-item w3-button w3-theme w3-hover-white w3-padding-16 my-nav-head" style="width:50%">@Resource.Coaches</a>                
+                <a href="javascript:void(0)" onclick="show_nav(this, 'menuCoaches')" class="w3-bar-item w3-button w3-theme w3-hover-white w3-padding-16 my-nav-head" style="width:50%">@Resource.Coaches</a>
+                <a href="javascript:void(0)" onclick="show_nav(this, 'menuTrainings')" class="w3-bar-item w3-button w3-theme w3-hover-white w3-padding-16 my-nav-head" style="width:50%">@Resource.Trainings</a>          
+                <a href="javascript:void(0)" onclick="show_nav(this, 'menuRaitings')" class="w3-bar-item w3-button w3-theme w3-hover-white w3-padding-16 my-nav-head" style="width:50%">@Resource.Raitings</a>      
+                <a href="javascript:void(0)" onclick="show_nav(this, 'menuBlog')" class="w3-bar-item w3-button w3-theme w3-hover-white w3-padding-16 my-nav-head" style="width:50%">@Resource.Blog</a>          
             </div>
 
             <a href="javascript:void(0)" onclick="close_sidebar()" class="w3-button w3-right w3-xlarge w3-hide-large" title="@Resource.Tt_close_menu">×</a>
@@ -23,7 +32,30 @@
                 <div class="w3-container">
                     <h3>@Resource.Coaches</h3>
                 </div>
-                <a class="w3-bar-item w3-button my-nav" id="nav_list_coaches">@Resource.List_coaches</a>               
+                <a class="w3-bar-item w3-button my-nav" id="nav_list_coaches">@Resource.List_coaches</a>
+                <a class="w3-bar-item w3-button my-nav">@Resource.My_coaches</a>               
+            </div>
+            
+            <div id="menuTrainings" class="myMenu" style="display:none">
+                <div class="w3-container">
+                    <h3>@Resource.Trainings</h3>
+                </div>
+                <a class="w3-bar-item w3-button my-nav" id="nav_training_templates">@Resource.Trainings_templates</a>
+                <a class="w3-bar-item w3-button my-nav" id="nav_my_trainings">@Resource.My_trainings</a>                
+                <a class="w3-bar-item w3-button my-nav" id="nav_training_generator">@Resource.Training_generator</a>
+            </div>  
+            
+            <div id="menuRaitings" class="myMenu" style="display:none">
+                <div class="w3-container">
+                    <h3>@Resource.Raitings</h3>
+                </div>
+                <a class="w3-bar-item w3-button my-nav">@Resource.Top10</a>
+                <a class="w3-bar-item w3-button my-nav">@Resource.My_raiting</a>                
+            </div>
+            <div id="menuBlog" class="myMenu" style="display:none">
+                <div class="w3-container">
+                    <h3>@Resource.Blog</h3>
+                </div>               
             </div>            
 
         </div>
@@ -38,10 +70,11 @@
                         <li><a id="title_main_cont_level_2"></a></li>
                     </ul>
                 </div>
+                
                 <button onclick="toggle_advanced_search('advanced_search_content')" class="w3-hide w3-button w3-theme w3-small w3-margin-bottom" id="advanced_search_toggle_btn">@Resource.Advanced_search</button>
                 <div id="advanced_search_content" class="w3-hide w3-container w3-light-grey w3-margin-bottom">
-                    <div class="w3-row">
-                        <div class="w3-col w3-third">
+                    <div class="w3-row-padding">
+                        <div class="w3-third">
                             <select id="advanced_search_gender" class="w3-input w3-border w3-margin-bottom w3-margin">
                                 <option value="0" hidden>@Resource.Choose_gender</option>
                                 <option value="0">Любой</option>
@@ -49,7 +82,7 @@
                                 <option value="2">Женщина</option>
                             </select>
                         </div>
-                        <div class="w3-col w3-third">
+                        <div class="w3-third">
                             <select id="advanced_search_age" class="w3-input w3-border w3-margin-bottom w3-margin">
                                 <option value="0" hidden>@Resource.Choose_age</option>
                                 <option value="0">Любой</option>
@@ -59,8 +92,51 @@
                                 <option value="4">старше 35 лет</option>
                             </select>
                         </div>
-                        <div class="w3-col w3-third">
+                        <div class="w3-third">
                             <button class="w3-button w3-green w3-small w3-round w3-right w3-margin" id="advanced_search_btn">@Resource.Search</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button onclick="toggle_advanced_search('advanced_search_training_templates_content')" class="w3-hide w3-button w3-theme w3-small w3-margin-bottom" id="advanced_search_training_templates_toggle_btn">@Resource.Advanced_search</button>
+                <div id="advanced_search_training_templates_content" class="w3-hide w3-container w3-light-grey w3-margin-bottom">
+                    <div class="w3-row-padding">
+                        <div class="w3-quarter">
+                            <select id="advanced_search_training_templates_for_whom" class="w3-input w3-border w3-margin-bottom w3-margin">
+                                <option disabled selected>@Resource.ForWhom</option>
+                                <option disabled>--------</option>
+                                <option value="">Все категории</option>
+                                <option disabled>--------</option>   
+                                <option>Для всех</option>
+                                <option>Мужчины</option>
+                                <option>Женщины</option>                                                            
+                            </select>
+                        </div>
+                        <div class="w3-quarter">
+                            <select id="advanced_search_training_templates_aim" class="w3-input w3-border w3-margin-bottom w3-margin">
+                                <option disabled selected>@Resource.Aim</option>
+                                <option disabled>--------</option>
+                                <option value="">Все цели</option>
+                                <option disabled>--------</option>
+                                <option>Поддержка формы</option>
+                                <option>Сжигание жира</option>
+                                <option>Набор массы</option> 
+                            </select>
+                        </div>
+                        <div class="w3-quarter">
+                            <select id="advanced_search_training_templates_level" class="w3-input w3-border w3-margin-bottom w3-margin">
+                                <option disabled selected>@Resource.Level</option>
+                                <option disabled>--------</option>
+                                <option value="">Все уровни</option>  
+                                <option disabled>--------</option>
+                                <option>Начальный</option>
+                                <option>Средний</option>
+                                <option>Высокий</option>                                
+                            </select>
+                        </div>
+                        <div class="w3-quarter">
+                            <button class="w3-button w3-green w3-small w3-round w3-right w3-margin" id="advanced_search_training_templates_btn">@Resource.Search</button>
                         </div>
                     </div>
                 </div>
@@ -87,7 +163,7 @@
                                 '<th></th>' +
                                 '<th>'+'@Resource.Coach'+'</th>' +
                                 '<th>'+'@Resource.Age'+'</th>' +
-                                '<th>' + '@Resource.Gender' + '</th>' +     
+                                '<th>' + '@Resource.Gender' + '</th>' +
                                 '<th></th>'
                             '</tr>' +
                         '</thead>'+
@@ -96,12 +172,12 @@
                     for (var coach in coaches) {
                         strResult = '<tr style="cursor:pointer" title="'+'@Resource.View_profile'+'" onclick="view_profile(this)">' +
                             '<td>' +
-                                '<img src="/Images/user.png" class="w3-circle" alt="Avatar" style="height:35px;width:35px;"/>' +
+                                '<img src="' + coaches[coach].Avatar + '" class="w3-circle profile_Avatar_CA" alt="Avatar" style="height:35px;width:35px;"/>' +
                             '</td>' +
                             '<td>' + coaches[coach].LastName + ' ' + coaches[coach].FirstName + ' ' + coaches[coach].Patronymic + '</td>' +
                             '<td class="profile_Age_CA">' + coaches[coach].Age + '</td>' +
                             '<td class="profile_Sex_CA">' + coaches[coach].Sex + '</td>' +
-                            '<td>' +                                
+                            '<td>' +
                                 '<a class="w3-button w3-theme w3-round w3-small w3-right w3-hover-blue w3-hover-opacity">' + '@Resource.Shoose_him_her' + '</a>' +
                             '</td>' +
                             '<td class="w3-hide profile_UserName_CA">' + coaches[coach].UserName + '</td>' +
@@ -153,7 +229,7 @@
                     for (var coach in coaches) {
                         strResult = '<tr style="cursor:pointer" title="' + '@Resource.View_profile' + '" onclick="view_profile(this)">' +
                             '<td>' +
-                                '<img src="/Images/user.png" class="w3-circle" alt="Avatar" style="height:35px;width:35px;"/>' +
+                                '<img src="' + coaches[coach].Avatar + '" class="w3-circle profile_Avatar_CA" alt="Avatar" style="height:35px;width:35px;"/>' +
                             '</td>' +
                             '<td>' + coaches[coach].LastName + ' ' + coaches[coach].FirstName + ' ' + coaches[coach].Patronymic + '</td>' +
                             '<td class="profile_Age_CA">' + coaches[coach].Age + '</td>' +
@@ -179,5 +255,118 @@
             });
         });
     });
+
+    $(function () {
+        $("#nav_training_templates").click(function () {
+            $('#data_result').empty();
+            $.ajax({
+                url: '/api/customer/GetAllTrainingTemplates',
+                type: 'GET',
+                contentType: 'application/json; charset=utf-8',
+                success: function (templates) {
+                    var strResult;
+                    var count = 0,  countRows = 0;
+                    $('#data_result').append(strResult);
+                    for (var i in templates) {
+                        if (count % 2 === 0) {
+                            countRows++;
+                            strResult = '<div id="row_padding_' + countRows + '" class="w3-row-padding w3-margin-top"></div>';
+                            $('#data_result').append(strResult);
+                        }
+                        strResult =
+                             '<div class="w3-half" style="cursor:pointer" title="' + '@Resource.View_training_details' + '" onclick="view_training_template(this)">' +
+                                '<div class="w3-card">'+
+                                    '<img src="'+ templates[i].Icon +'" alt="Training" style="width:100%">'+
+                                    '<div class="w3-container">'+
+                                        '<h4><b>' + templates[i].Name + '</b></h4>' +
+                                        '<p>'+
+                                            '<label><b>'+'@Resource.Aim'+': </b></label>'+
+                                            '<text>' + templates[i].Aim + '</text>' +
+                                        '</p>'+
+                                        '<p>'+
+                                            '<label><b>' + '@Resource.ForWhom' + ': </b></label>' +
+                                            '<text>' + templates[i].GenderCategory + '</text>' +
+                                        '</p>'+
+                                        '<p>'+
+                                            '<label><b>' + '@Resource.Level' + ': </b></label>' +
+                                            '<text>' + templates[i].Complexity + '</text>'+
+                                        '</p>'+
+                                    '</div>' +
+                                    '<div class="w3-hide trainining_template_id">' + templates[i].Id + '</div>' +
+                                '</div>' +
+                            '</div>';
+
+                        $("#row_padding_" + countRows).append(strResult);
+                        count++;
+                    }
+
+                    $("#advanced_search_training_templates_toggle_btn").addClass("w3-show");
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        })
+    });
+
+    $(function () {
+        $('#advanced_search_training_templates_btn').click(function (e) {
+            $('#data_result').empty();
+            var data = {
+                AimParameter: $('#advanced_search_training_templates_aim').val(),
+                LevelParameter: $('#advanced_search_training_templates_level').val(),
+                ForWhomParameter: $('#advanced_search_training_templates_for_whom').val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/api/customer/SearchTrainingTemplates',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data),
+                success: function (templates) {
+                    var strResult;
+                    var count = 0,  countRows = 0;
+                    $('#data_result').append(strResult);
+                    for (var i in templates) {
+                        if (count % 2 === 0) {
+                            countRows++;
+                            strResult = '<div id="row_padding_' + countRows + '" class="w3-row-padding w3-margin-top"></div>';
+                            $('#data_result').append(strResult);
+                        }
+                        strResult =
+                             '<div class="w3-half" style="cursor:pointer" title="' + '@Resource.View_training_details' + '" onclick="view_training_template(this)">' +
+                                '<div class="w3-card">'+
+                                    '<img src="'+ templates[i].Icon +'" alt="Training" style="width:100%">'+
+                                    '<div class="w3-container">'+
+                                        '<h4><b>' + templates[i].Name + '</b></h4>' +
+                                        '<p>'+
+                                            '<label><b>'+'@Resource.Aim'+': </b></label>'+
+                                            '<text>' + templates[i].Aim + '</text>' +
+                                        '</p>'+
+                                        '<p>'+
+                                            '<label><b>' + '@Resource.ForWhom' + ': </b></label>' +
+                                            '<text>' + templates[i].GenderCategory + '</text>' +
+                                        '</p>'+
+                                        '<p>'+
+                                            '<label><b>' + '@Resource.Level' + ': </b></label>' +
+                                            '<text>' + templates[i].Complexity + '</text>'+
+                                        '</p>'+
+                                    '</div>' +
+                                    '<div class="w3-hide trainining_template_id">' + templates[i].Id + '</div>'+
+                                '</div>' +
+                            '</div>';
+
+                        $("#row_padding_" + countRows).append(strResult);
+                        count++;
+                    }
+
+                    $("#advanced_search_training_templates_toggle_btn").addClass("w3-show");
+                },
+                error: function (x, y, z) {
+                    alert(x + '\n' + y + '\n' + z);
+                }
+            });
+        });
+    });
+
 </script>
 

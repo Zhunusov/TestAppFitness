@@ -59,6 +59,7 @@
     {
         Html.RenderPartial("EditInfoPartial");
         Html.RenderPartial("ProfilePartial");
+        Html.RenderPartial("TrainingTemplatePartial");
 
         if (Roles.IsUserInRole(User.Identity.Name, "Administrator")){
             Html.RenderPartial("RegisterPartial");

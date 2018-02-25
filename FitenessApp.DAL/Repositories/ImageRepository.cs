@@ -17,8 +17,7 @@ namespace FitnessApp.DAL.Repositories
         }
         public IEnumerable<Image> GetAll()
         {
-            return Database.Images
-                  .Include(i => i.ApplicationUser)                  
+            return Database.Images                                
                   .ToList();
         }
         public Image Get(Guid id)
@@ -28,8 +27,7 @@ namespace FitnessApp.DAL.Repositories
         }
         public IEnumerable<Image> Find(Func<Image, Boolean> predicate)
         {
-            return Database.Images
-                .Include(i => i.ApplicationUser)
+            return Database.Images               
                 .Where(predicate).ToList();
         }
         public void Create(Image item)

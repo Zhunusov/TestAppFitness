@@ -234,6 +234,169 @@ namespace FitnessApp.BLL.Services
             return new OperationDetails(false, "Пользователь не найден", "");
         }
 
+        public ICollection<TrainingTemplateDTO> GetAllTrainingTemplates()
+        {
+            List<TrainingTemplateDTO> trainingTemplatesDTO = new List<TrainingTemplateDTO>();
+            var trainingTemplates = Database.TrainingTemplateRepository.GetAll();
+            foreach(var trainingTemplate in trainingTemplates)
+            {
+                TrainingTemplateDTO trainingTemplateDTO = new TrainingTemplateDTO();
+                var customLoads = Database.CustomLoadRepository.Find(_ => _.TrainingTemplateId == trainingTemplate.Id);
+                foreach (var customLoad in customLoads)
+                {
+                    var load = Database.LoadRepository.Get(customLoad.LoadName);
+                    LoadDTO loadDTO = new LoadDTO()
+                    {
+                         Title =load.Title,
+                         Description = load.Description,
+                         Name = load.Name,
+                         Iteration = load.Iteration,
+                         Series = load.Series,
+                         Icon = load.Icon
+                    };
+
+                    CustomLoadDTO customLoadDTO = new CustomLoadDTO()
+                    {
+                        Id = customLoad.Id,
+                        CustomIteration = customLoad.CustomIteration,
+                        CustomSeries = customLoad.CustomSeries,
+                        LoadDTO = loadDTO
+                    };
+
+                    trainingTemplateDTO.CustomLoadsDTO.Add(customLoadDTO);
+                }
+
+                trainingTemplateDTO.Aim = trainingTemplate.Aim;
+                trainingTemplateDTO.Complexity = trainingTemplate.Complexity;
+                trainingTemplateDTO.DaysPerWeek = trainingTemplate.DaysPerWeek;
+                trainingTemplateDTO.Description = trainingTemplate.Description;
+                trainingTemplateDTO.GenderCategory = trainingTemplate.GenderCategory;
+                trainingTemplateDTO.Icon = trainingTemplate.Icon;
+                trainingTemplateDTO.Id = trainingTemplate.Id;
+                trainingTemplateDTO.Name = trainingTemplate.Name;
+                trainingTemplateDTO.TrainingDuration = trainingTemplate.TrainingDuration;
+                trainingTemplateDTO.WeekDuration = trainingTemplate.WeekDuration;  
+
+                trainingTemplatesDTO.Add(trainingTemplateDTO);
+            }
+
+            return trainingTemplatesDTO;
+        }
+
+        public Task<List<TrainingTemplateDTO>> GetFilteredTrainingTemplates(string aimParameter, string levelParameter, string forWhomParameter)
+        {
+            List<TrainingTemplateDTO> trainingTemplatesDTO = new List<TrainingTemplateDTO>();
+
+            return Task.Run(() =>
+            {
+                var trainingTemplates = Database.TrainingTemplateRepository
+                    .Find(_ => 
+                    (string.IsNullOrEmpty(aimParameter) || (aimParameter != null ? _.Aim == aimParameter : false)) &&
+                    (string.IsNullOrEmpty(levelParameter) || (levelParameter != null ? _.Complexity == levelParameter : false)) &&
+                    (string.IsNullOrEmpty(forWhomParameter) || 
+                        (forWhomParameter == "Женщины" ? _.GenderCategory == forWhomParameter || _.GenderCategory == "Для всех" : false) ||
+                        (forWhomParameter == "Мужчины" ? _.GenderCategory == forWhomParameter || _.GenderCategory == "Для всех" : false) ||
+                        (forWhomParameter != null ? _.GenderCategory == forWhomParameter : false)));
+
+                foreach (var trainingTemplate in trainingTemplates)
+                {
+                    TrainingTemplateDTO trainingTemplateDTO = new TrainingTemplateDTO();
+                    var customLoads = Database.CustomLoadRepository.Find(_ => _.TrainingTemplateId == trainingTemplate.Id);
+                    foreach (var customLoad in customLoads)
+                    {
+                        var load = Database.LoadRepository.Get(customLoad.LoadName);
+                        LoadDTO loadDTO = new LoadDTO()
+                        {
+                            Title = load.Title,
+                            Description = load.Description,
+                            Name = load.Name,
+                            Iteration = load.Iteration,
+                            Series = load.Series,
+                            Icon = load.Icon
+                        };
+
+                        CustomLoadDTO customLoadDTO = new CustomLoadDTO()
+                        {
+                            Id = customLoad.Id,
+                            CustomIteration = customLoad.CustomIteration,
+                            CustomSeries = customLoad.CustomSeries,
+                            LoadDTO = loadDTO
+                        };
+
+                        trainingTemplateDTO.CustomLoadsDTO.Add(customLoadDTO);
+                    }
+
+                    trainingTemplateDTO.Aim = trainingTemplate.Aim;
+                    trainingTemplateDTO.Complexity = trainingTemplate.Complexity;
+                    trainingTemplateDTO.DaysPerWeek = trainingTemplate.DaysPerWeek;
+                    trainingTemplateDTO.Description = trainingTemplate.Description;
+                    trainingTemplateDTO.GenderCategory = trainingTemplate.GenderCategory;
+                    trainingTemplateDTO.Icon = trainingTemplate.Icon;
+                    trainingTemplateDTO.Id = trainingTemplate.Id;
+                    trainingTemplateDTO.Name = trainingTemplate.Name;
+                    trainingTemplateDTO.TrainingDuration = trainingTemplate.TrainingDuration;
+                    trainingTemplateDTO.WeekDuration = trainingTemplate.WeekDuration;
+
+                    trainingTemplatesDTO.Add(trainingTemplateDTO);
+                }
+
+                return trainingTemplatesDTO;
+            });
+         
+        }
+
+        public Task<TrainingTemplateDTO> GetTrainingTemplateById(Guid? Id)
+        {
+            return Task.Run(() =>
+            {
+                if (Id == null)
+                    return null;
+
+                var trainingTemplate = Database.TrainingTemplateRepository.Get((Guid)Id);
+                if(trainingTemplate != null)
+                {
+                    TrainingTemplateDTO trainingTemplateDTO = new TrainingTemplateDTO();
+                    var customLoads = Database.CustomLoadRepository.Find(_ => _.TrainingTemplateId == trainingTemplate.Id);
+                    foreach (var customLoad in customLoads)
+                    {
+                        var load = Database.LoadRepository.Get(customLoad.LoadName);
+                        LoadDTO loadDTO = new LoadDTO()
+                        {
+                            Title = load.Title,
+                            Description = load.Description,
+                            Name = load.Name,
+                            Iteration = load.Iteration,
+                            Series = load.Series,
+                            Icon = load.Icon
+                        };
+
+                        CustomLoadDTO customLoadDTO = new CustomLoadDTO()
+                        {
+                            Id = customLoad.Id,
+                            CustomIteration = customLoad.CustomIteration,
+                            CustomSeries = customLoad.CustomSeries,
+                            LoadDTO = loadDTO
+                        };
+
+                        trainingTemplateDTO.CustomLoadsDTO.Add(customLoadDTO);
+                    }
+
+                    trainingTemplateDTO.Aim = trainingTemplate.Aim;
+                    trainingTemplateDTO.Complexity = trainingTemplate.Complexity;
+                    trainingTemplateDTO.DaysPerWeek = trainingTemplate.DaysPerWeek;
+                    trainingTemplateDTO.Description = trainingTemplate.Description;
+                    trainingTemplateDTO.GenderCategory = trainingTemplate.GenderCategory;
+                    trainingTemplateDTO.Icon = trainingTemplate.Icon;
+                    trainingTemplateDTO.Id = trainingTemplate.Id;
+                    trainingTemplateDTO.Name = trainingTemplate.Name;
+                    trainingTemplateDTO.TrainingDuration = trainingTemplate.TrainingDuration;
+                    trainingTemplateDTO.WeekDuration = trainingTemplate.WeekDuration;
+
+                    return trainingTemplateDTO;
+                }
+                return null;
+            });
+        }
         public void Dispose()
         {
             Database.Dispose();

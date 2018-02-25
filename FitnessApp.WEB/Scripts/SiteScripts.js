@@ -59,13 +59,15 @@ $(function () {
 });
 
 function show_nav(obj, name) {
-    $("#menuCustomers").css("display", "none");
-    $("#menuCoaches").css("display", "none");
-    $("#menuManagers").css("display", "none");
+    $(".myMenu").css("display", "none");    
     $("#" + name).css("display", "block");
     $('#data_result').empty();
     $('#title_main_cont_level_2').text("");
     $('#title_main_cont_level_1').text(obj.text);
+    $("#advanced_search_toggle_btn").removeClass("w3-show");
+    $("#advanced_search_content").removeClass("w3-show");
+    $("#advanced_search_training_templates_toggle_btn").removeClass("w3-show");
+    $("#advanced_search_training_templates_content").removeClass("w3-show");
 }
 
 $(function () {
@@ -339,6 +341,7 @@ function view_profile(item) {
     $("#profile_Phone").text($(item).find(".profile_Phone_CA").first().text());
     $("#profile_Manager").text($(item).find(".profile_Manager_CA").first().text());
     $("#profile_role_status").text($(item).find(".profile_Role_CA").first().text());
+    $("#profile_avatar").prop("src", $(item).find(".profile_Avatar_CA").first().prop("src"));
     
     $("#mySidebar").css("zIndex", "0");
     $("#profile_modal").css("display", "block");
@@ -352,5 +355,6 @@ function toggle_advanced_search(id) {
         x.className = x.className.replace(" w3-show", "");
     }
 }
+
 
 

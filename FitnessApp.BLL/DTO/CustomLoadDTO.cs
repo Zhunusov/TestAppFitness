@@ -9,7 +9,8 @@ namespace FitnessApp.BLL.DTO
     public class CustomLoadDTO
     {
         public Guid Id { get; set; }
-        public int Amount { get; set; }
+        public int? CustomSeries { get; set; }
+        public string CustomIteration { get; set; }
         public LoadDTO LoadDTO { get; set; }
     }
 }

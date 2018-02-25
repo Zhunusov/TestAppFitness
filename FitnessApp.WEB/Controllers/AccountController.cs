@@ -222,9 +222,8 @@ namespace FitnessApp.WEB.Controllers
                 Email = "administrator@test.com",
                 UserName = "administrator@test.com",
                 Password = "123456789",
-                FirstName = "Артур",
-                LastName = "Жунусов",
-                Patronymic = "Кажиканович",
+                FirstName = "Евгений",
+                LastName = "Карасев",
                 Role = "Administrator",
             }, new List<string> { "Administrator", "Manager", "Customer", "Coach" });
         }

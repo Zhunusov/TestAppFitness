@@ -17,8 +17,9 @@ namespace FitnessApp.DAL.Repositories
         }
         public IEnumerable<TrainingTemplate> GetAll()
         {
-            return Database.TrainingTemplates                  
-                  .ToList();
+            return Database.TrainingTemplates
+                .Include(_=>_.CustomLoads)                  
+                .ToList();
         }
         public TrainingTemplate Get(Guid id)
         {

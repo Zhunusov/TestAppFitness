@@ -20,10 +20,10 @@ namespace FitnessApp.DAL.Repositories
             return Database.Loads                  
                   .ToList();
         }
-        public Load Get(string title)
+        public Load Get(string name)
         {
             return Database.Loads
-                .FirstOrDefault(l => l.Title == title);
+                .FirstOrDefault(l => l.Name == name);
         }
         public IEnumerable<Load> Find(Func<Load, Boolean> predicate)
         {

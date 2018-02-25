@@ -202,9 +202,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\SearchCoachModel.cs" />
+    <Compile Include="Models\SearchTrainingTemplatesModel.cs" />
     <Compile Include="Models\UpdateUserInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.Designer.cs">
@@ -225,6 +227,33 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\load_1.jpeg" />
+    <Content Include="Images\load_10.jpeg" />
+    <Content Include="Images\load_2.jpeg" />
+    <Content Include="Images\load_3.png" />
+    <Content Include="Images\load_4.jpeg" />
+    <Content Include="Images\load_5.jpeg" />
+    <Content Include="Images\load_6.jpeg" />
+    <Content Include="Images\load_7.jpeg" />
+    <Content Include="Images\load_8.jpeg" />
+    <Content Include="Images\load_9.jpeg" />
+    <Content Include="Images\trainer_1_man.jpeg" />
+    <Content Include="Images\trainer_2_man.jpeg" />
+    <Content Include="Images\trainer_3_man.jpeg" />
+    <Content Include="Images\trainer_4_man.jpeg" />
+    <Content Include="Images\trainer_5_woman.jpeg" />
+    <Content Include="Images\trainer_6_man.jpeg" />
+    <Content Include="Images\trainer_7_woman.jpeg" />
+    <Content Include="Images\trainer_8_woman.jpeg" />
+    <Content Include="Images\trainer_9_woman.jpeg" />
+    <Content Include="Images\training_icon_1.jpg" />
+    <Content Include="Images\training_icon_2.jpg" />
+    <Content Include="Images\training_icon_3.jpg" />
+    <Content Include="Images\training_icon_4.jpg" />
+    <Content Include="Images\training_icon_5.jpg" />
+    <Content Include="Images\training_icon_6.jpg" />
+    <Content Include="Images\training_icon_7.jpg" />
+    <Content Include="Images\training_icon_8.jpg" />
     <Content Include="Images\training_room_1.jpg" />
     <Content Include="Images\training_room_2.jpg" />
     <Content Include="Images\training_room_3.jpg" />
@@ -279,6 +308,7 @@
     <Content Include="Views\Home\CustomerArea.cshtml" />
     <Content Include="Views\Shared\EditInfoPartial.cshtml" />
     <Content Include="Views\Shared\ProfilePartial.cshtml" />
+    <Content Include="Views\Shared\TrainingTemplatePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FitnessApp.BLL\FitnessApp.BLL.csproj">

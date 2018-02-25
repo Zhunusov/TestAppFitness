@@ -1,0 +1,107 @@
+﻿@using Resources;
+
+<div id="training_template_modal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="width:800px">
+
+        <img id="training_template_icon" src="" alt="Training" style="width:100%">
+        <span class="w3-button w3-xlarge w3-transparent w3-display-topright close-modal" title="Close Modal">×</span>
+        <div class="w3-container">
+            <h2><b id="training_template_title"></b></h2>
+            <h4 id="training_template_description"></h4>
+            <br />
+            <label><b>@Resource.Aim:</b></label>
+            <text id="training_template_aim"></text>
+            <br />
+            <label><b>@Resource.ForWhom: </b></label>
+            <text id="training_template_forwhom">GenderCategory</text>
+            <br />
+            <label><b>@Resource.Level: </b></label>
+            <text id="training_template_level"></text>
+            <br /><br /><br />
+            <div class="w3-row-padding">
+                <div class="w3-third">
+                    <label><b>@Resource.WeekDuration: </b></label>
+                    <text id="training_template_weekduration"></text>
+                </div>
+                <div class="w3-third">
+                    <label><b>@Resource.DaysPerWeek: </b></label>
+                    <text id="training_template_daysperweek"></text>
+                </div>
+                <div class="w3-third">
+                    <label><b>@Resource.TrainingDuration: </b></label>
+                    <text id="training_template_trainingduration"></text> @Resource.Hours
+                </div>
+            </div>
+            <br /><br /><br />
+        </div>
+
+        <h3 class="w3-center"><b>@Resource.Loads:</b></h3>
+        <div class="w3-margin" id="training_template_loads_content">
+                       
+        </div>         
+        
+        <button type="button" class="w3-button w3-theme w3-margin close-modal">@Resource.Add_to_my_trainings</button>     
+
+        <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            <button type="button" class="w3-button w3-red close-modal w3-right">@Resource.Close</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function view_training_template(item) {
+        $.ajax({
+            type: 'POST',
+            url: '/api/customer/GetTrainingTemplate',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify($(item).find(".trainining_template_id").text()),
+            success: function (template) {
+                $("#training_template_icon").prop("src", template.Icon);
+                $("#training_template_title").text(template.Name);
+                $("#training_template_description").text(template.Description);
+                $("#training_template_aim").text(template.Aim);
+                $("#training_template_forwhom").text(template.GenderCategory);
+                $("#training_template_level").text(template.Complexity);
+                $("#training_template_weekduration").text(template.WeekDuration);
+                $("#training_template_daysperweek").text(template.DaysPerWeek);
+                $("#training_template_trainingduration").text(template.TrainingDuration);
+
+                $("#training_template_loads_content").empty();
+                for (var i in template.CustomLoadsDTO) {
+                    var strResult =
+                        '<div class="w3-card w3-row-padding w3-margin-top">' +
+                            '<div class="w3-third">'+
+                                '<img src="' + template.CustomLoadsDTO[i].LoadDTO.Icon + '" alt="Load" style="width:70%"  class="w3-border w3-round"/>' +
+                            '</div>'+
+                            '<div class="w3-twothird">'+
+                                '<label><b>'+'@Resource.LoadTitle'+': </b></label>'+
+                                '<text>'+template.CustomLoadsDTO[i].LoadDTO.Title+'</text>'+
+                                '<br />'+
+                                '<label><b>' + '@Resource.LoadDescription' + ': </b></label>' +
+                                '<text>' + template.CustomLoadsDTO[i].LoadDTO.Description + '</text>' +
+                                '<br />' +
+                                '<label><b>' + '@Resource.Series' + ': </b></label>' +
+                                '<text>' + template.CustomLoadsDTO[i].LoadDTO.Series + '</text>' +
+                                '<br />' +
+                                '<label><b>' + '@Resource.Iterations' + ': </b></label>' +
+                                '<text>' + template.CustomLoadsDTO[i].LoadDTO.Iteration + '</text>' +
+                                '<br />' +
+                            '</div>'+
+                        '</div>';
+
+
+                    $("#training_template_loads_content").append(strResult);
+                }
+
+                $("#mySidebar").css("zIndex", "0");
+                $("#training_template_modal").css("display", "block");
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+
+
+    }
+</script>

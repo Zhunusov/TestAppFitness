@@ -16,6 +16,8 @@ namespace FitnessApp.BLL.DTO
         public string LastName { get; set; }
         public string Patronymic { get; set; }
         public string Role { get; set; }
-        public ImageDTO ImageDTO { get; set; }
+        public Guid? ImageId { get; set; }        
+        public string Avatar { get; set; }
+        public string SmallAvatar { get; set; }
     }
 }

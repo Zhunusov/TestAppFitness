@@ -324,4 +324,73 @@
   <data name="Woman" xml:space="preserve">
     <value>Woman</value>
   </data>
+  <data name="Aim" xml:space="preserve">
+    <value>Aim</value>
+  </data>
+  <data name="ForWhom" xml:space="preserve">
+    <value>For whom</value>
+  </data>
+  <data name="Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="My_trainings" xml:space="preserve">
+    <value>My trainings</value>
+  </data>
+  <data name="Trainings" xml:space="preserve">
+    <value>Trainings</value>
+  </data>
+  <data name="Trainings_templates" xml:space="preserve">
+    <value>Templates of trainings</value>
+  </data>
+  <data name="Training_generator" xml:space="preserve">
+    <value>Training generator</value>
+  </data>
+  <data name="View_training_details" xml:space="preserve">
+    <value>View training details</value>
+  </data>
+  <data name="Add_to_my_trainings" xml:space="preserve">
+    <value>Add to my trainings</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="DaysPerWeek" xml:space="preserve">
+    <value>Training days per week</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>Hours</value>
+  </data>
+  <data name="Iterations" xml:space="preserve">
+    <value>Iterations</value>
+  </data>
+  <data name="LoadDescription" xml:space="preserve">
+    <value>Load description</value>
+  </data>
+  <data name="Loads" xml:space="preserve">
+    <value>Loads</value>
+  </data>
+  <data name="LoadTitle" xml:space="preserve">
+    <value>Load title</value>
+  </data>
+  <data name="My_coaches" xml:space="preserve">
+    <value>My coaches</value>
+  </data>
+  <data name="My_raiting" xml:space="preserve">
+    <value>My raiting</value>
+  </data>
+  <data name="Raitings" xml:space="preserve">
+    <value>Raitings</value>
+  </data>
+  <data name="Series" xml:space="preserve">
+    <value>Series</value>
+  </data>
+  <data name="Top10" xml:space="preserve">
+    <value>TOP 10 of fitness room</value>
+  </data>
+  <data name="TrainingDuration" xml:space="preserve">
+    <value>Training duration</value>
+  </data>
+  <data name="WeekDuration" xml:space="preserve">
+    <value>Week duration</value>
+  </data>
 </root>

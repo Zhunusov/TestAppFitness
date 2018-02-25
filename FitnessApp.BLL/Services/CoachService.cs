@@ -142,6 +142,10 @@ namespace FitnessApp.BLL.Services
             var coaches = Database.CoachRepository.GetAll();
             foreach (var coach in coaches)
             {
+                Image image = new Image();
+                if ((coach.ImageId != null))
+                    image = Database.ImageRepository.Get((Guid)coach.ImageId);
+
                 CoachDTO coachDTO = new CoachDTO
                 {
                     Id = coach.Id,
@@ -156,7 +160,10 @@ namespace FitnessApp.BLL.Services
                     Phone = coach.Phone,
                     Email = coach.ApplicationUser.Email,
                     UserName = coach.ApplicationUser.UserName,
-                    Role = await GetRole(coach.ApplicationUser.UserName)
+                    Role = await GetRole(coach.ApplicationUser.UserName),
+                    ImageId = image?.Id,
+                    Avatar = image?.Avatar,
+                    SmallAvatar = image?.SmallAvatar                                     
                 };
 
                 var manager = Database.ManagerRepository.Find(_ => _.Id == coach.ManagerId).FirstOrDefault();
@@ -199,6 +206,10 @@ namespace FitnessApp.BLL.Services
                 var coaches = Database.CoachRepository.Find(_=>_.Sex == genderParameters[0] || _.Sex == genderParameters[1]);
                 foreach (var coach in coaches)
                 {
+                    Image image = new Image();
+                    if ((coach.ImageId != null))
+                        image = Database.ImageRepository.Get((Guid)coach.ImageId);
+
                     CoachDTO coachDTO = new CoachDTO
                     {
                         Id = coach.Id,
@@ -213,7 +224,10 @@ namespace FitnessApp.BLL.Services
                         Phone = coach.Phone,
                         Email = coach.ApplicationUser.Email,
                         UserName = coach.ApplicationUser.UserName,
-                        Role = await GetRole(coach.ApplicationUser.UserName)
+                        Role = await GetRole(coach.ApplicationUser.UserName),
+                        ImageId = image?.Id,
+                        Avatar = image?.Avatar,
+                        SmallAvatar = image?.SmallAvatar
                     };
 
                     var manager = Database.ManagerRepository.Find(_ => _.Id == coach.ManagerId).FirstOrDefault();

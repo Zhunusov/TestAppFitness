@@ -9,13 +9,18 @@ namespace FitnessApp.DAL.Entities
     { 
         [Key]       
         public Guid Id { get; set; }
-        public int Amount { get; set; }
+        public int? CustomSeries { get; set; }
+        public string CustomIteration { get; set; }
 
         [ForeignKey("Load")]
-        public string LoadTitle { get; set; }
+        public string LoadName { get; set; }
         public Load Load { get; set; }
         [ForeignKey("Training")]
-        public Guid TrainingId { get; set; }
+        public Guid? TrainingId { get; set; }
         public Training Training { get; set; }
+
+        [ForeignKey("TrainingTemplate")]
+        public Guid? TrainingTemplateId { get; set; }
+        public TrainingTemplate TrainingTemplate { get; set; }
     }
 }
