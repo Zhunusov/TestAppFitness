@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FitnessApp.DAL.EF.ApplicationContext">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEAAAACAAIBAAAAAAAgAAAAEAAAABAAAABAgAAAAAA=</HashCode>
+      <FileName>EF\ApplicationContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.Administrator">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAGAAAAAAAAAQAAAAAAAAAAAAABEAAAAAAAAAAAg=</HashCode>
+      <FileName>Entities\Administrator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.ApplicationRole">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ApplicationRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.ApplicationUser">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAgEABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.Coach">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAECAGAAAAAABAAQAAAIAAAAEAAQBBECAAAAIAAAAAg=</HashCode>
+      <FileName>Entities\Coach.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.Customer">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAGAAAAAQBCAQAAAIAAAAEiAQBBECAAAAIAAAAAg=</HashCode>
+      <FileName>Entities\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.CustomLoad">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAECiAAAAIAAAAAAAAAAIgAAEAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\CustomLoad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.Image">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Image.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.Load">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEQAAAAAAAQAAAAAAAAAAAAAAAEAAAE=</HashCode>
+      <FileName>Entities\Load.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.Manager">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAECAGAAAAABAAAQAAAAAAAAEAAQABECAAAAIAAAAAg=</HashCode>
+      <FileName>Entities\Manager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.Training">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AGECAIAGAAAgACAAAQAIAAQQAgAABBAAAAAQAAEAAEA=</HashCode>
+      <FileName>Entities\Training.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Entities.TrainingTemplate">
+    <Position X="9.25" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AGACAAACAAAgAAAAAQAAAAQQAAAAAAAAAAAQAAEAAEA=</HashCode>
+      <FileName>Entities\TrainingTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Identity.ApplicationRoleManager">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Identity\ApplicationRoleManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Identity.ApplicationUserManager">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Identity\ApplicationUserManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.DAL.Repositories.AdministratorRepository" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\AdministratorRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.DAL.Repositories.CoachRepository" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\CoachRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.DAL.Repositories.CustomerRepository" BaseTypeListCollapsed="true">
+    <Position X="4" Y="6.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\CustomerRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.DAL.Repositories.CustomLoadRepository" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="6.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAEAAAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\CustomLoadRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.DAL.Repositories.IdentityUnitOfWork" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIICCQCAESEQggEhAAIAAAABAIACEAAAIgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IdentityUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.DAL.Repositories.ImageRepository" BaseTypeListCollapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAEAAAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ImageRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.DAL.Repositories.LoadRepository" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="6.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAEAAAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\LoadRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.DAL.Repositories.ManagerRepository" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAQAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\ManagerRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.DAL.Repositories.TrainingRepository" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="6.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAEAAAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\TrainingRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.DAL.Repositories.TrainingTemplateRepository" BaseTypeListCollapsed="true">
+    <Position X="11" Y="6.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAEAAAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repositories\TrainingTemplateRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="FitnessApp.DAL.Interfaces.ICustomLoadRepository">
+    <Position X="5.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICustomLoadRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.DAL.Interfaces.IImageRepository">
+    <Position X="7.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IImageRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.DAL.Interfaces.ILoadRepository">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ILoadRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.DAL.Interfaces.IRepository&lt;T&gt;">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.DAL.Interfaces.ITrainingRepository">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ITrainingRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.DAL.Interfaces.ITrainingTemplateRepository">
+    <Position X="4" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ITrainingTemplateRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.DAL.Interfaces.IUnitOfWork">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAQCAASAAgAABAAIAAAAAAIACEAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.DAL.Interfaces.IUserManager&lt;T&gt;">
+    <Position X="9.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEIAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUserManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="311d3f28c3814c81bbf734d8fabc2080" Name="Diagram1" DisplayType="true" ZoomLevel="74">
+        <EntityTypeShape EntityType="FitnessModel.Administrator" Width="1.875" PointX="8.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.AspNetRole" Width="1.75" PointX="0.875" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.AspNetUserClaim" Width="1.75" PointX="6.125" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.AspNetUserLogin" Width="1.875" PointX="3.875" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.AspNetUser" Width="2.625" PointX="1.625" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Coach" Width="1.875" PointX="10.625" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Customer" Width="1.875" PointX="9.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.CustomLoad" Width="2.125" PointX="17.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Image" Width="1.625" PointX="3.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Load" Width="2" PointX="14" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Manager" Width="1.875" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.Training" Width="2" PointX="13.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessModel.TrainingTemplate" Width="2" PointX="14.875" PointY="13.125" IsExpanded="true" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Administrators_dbo_AspNetUsers_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Administrators_dbo_Images_ImageId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Coaches_dbo_AspNetUsers_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Customers_dbo_AspNetUsers_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Managers_dbo_AspNetUsers_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Coaches_dbo_Images_ImageId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Coaches_dbo_Managers_ManagerId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Customers_dbo_Coaches_CoachId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Trainings_dbo_Coaches_CoachId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Customers_dbo_Images_ImageId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Customers_dbo_Managers_ManagerId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Trainings_dbo_Customers_CustomerId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_CustomLoads_dbo_Loads_LoadName" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_CustomLoads_dbo_Trainings_TrainingId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_CustomLoads_dbo_TrainingTemplates_TrainingTemplateId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Managers_dbo_Images_ImageId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.FK_dbo_Trainings_dbo_Managers_ManagerId" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

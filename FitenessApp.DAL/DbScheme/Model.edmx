@@ -1,0 +1,1298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище FitnessModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrators">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Patronymic" Type="nvarchar(max)" />
+          <Property Name="ImageId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coaches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Patronymic" Type="nvarchar(max)" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Sex" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="ManagerId" Type="nvarchar" MaxLength="128" />
+          <Property Name="ImageId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Patronymic" Type="nvarchar(max)" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Growth" Type="int" />
+          <Property Name="Sex" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="CoachId" Type="nvarchar" MaxLength="128" />
+          <Property Name="ManagerId" Type="nvarchar" MaxLength="128" />
+          <Property Name="ImageId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="CustomLoads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomSeries" Type="int" />
+          <Property Name="CustomIteration" Type="nvarchar(max)" />
+          <Property Name="LoadName" Type="nvarchar" MaxLength="128" />
+          <Property Name="TrainingId" Type="uniqueidentifier" />
+          <Property Name="TrainingTemplateId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OriginImage" Type="nvarchar(max)" />
+          <Property Name="Avatar" Type="nvarchar(max)" />
+          <Property Name="SmallAvatar" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Loads">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Series" Type="int" />
+          <Property Name="Iteration" Type="nvarchar(max)" />
+          <Property Name="Icon" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Managers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="Patronymic" Type="nvarchar(max)" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar(max)" />
+          <Property Name="ImageId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Trainings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Aim" Type="nvarchar(max)" />
+          <Property Name="GenderCategory" Type="nvarchar(max)" />
+          <Property Name="Complexity" Type="nvarchar(max)" />
+          <Property Name="WeekDuration" Type="int" />
+          <Property Name="DaysPerWeek" Type="int" />
+          <Property Name="TrainingDuration" Type="float" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Icon" Type="nvarchar(max)" />
+          <Property Name="DateOfTraining" Type="datetime" />
+          <Property Name="Status" Type="nvarchar(max)" />
+          <Property Name="CustomerId" Type="nvarchar" MaxLength="128" />
+          <Property Name="CoachId" Type="nvarchar" MaxLength="128" />
+          <Property Name="ManagerId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="TrainingTemplates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Aim" Type="nvarchar(max)" />
+          <Property Name="GenderCategory" Type="nvarchar(max)" />
+          <Property Name="Complexity" Type="nvarchar(max)" />
+          <Property Name="WeekDuration" Type="int" />
+          <Property Name="DaysPerWeek" Type="int" />
+          <Property Name="TrainingDuration" Type="float" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Icon" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_Administrators_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Administrators_dbo_Images_ImageId">
+          <End Role="Images" Type="Self.Images" Multiplicity="0..1" />
+          <End Role="Administrators" Type="Self.Administrators" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Coaches_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coaches">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Coaches_dbo_Images_ImageId">
+          <End Role="Images" Type="Self.Images" Multiplicity="0..1" />
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coaches">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Coaches_dbo_Managers_ManagerId">
+          <End Role="Managers" Type="Self.Managers" Multiplicity="0..1" />
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Managers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coaches">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Customers_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Customers_dbo_Coaches_CoachId">
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coaches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="CoachId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Customers_dbo_Images_ImageId">
+          <End Role="Images" Type="Self.Images" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Customers_dbo_Managers_ManagerId">
+          <End Role="Managers" Type="Self.Managers" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Managers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CustomLoads_dbo_Loads_LoadName">
+          <End Role="Loads" Type="Self.Loads" Multiplicity="0..1" />
+          <End Role="CustomLoads" Type="Self.CustomLoads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loads">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="CustomLoads">
+              <PropertyRef Name="LoadName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CustomLoads_dbo_Trainings_TrainingId">
+          <End Role="Trainings" Type="Self.Trainings" Multiplicity="0..1" />
+          <End Role="CustomLoads" Type="Self.CustomLoads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomLoads">
+              <PropertyRef Name="TrainingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CustomLoads_dbo_TrainingTemplates_TrainingTemplateId">
+          <End Role="TrainingTemplates" Type="Self.TrainingTemplates" Multiplicity="0..1" />
+          <End Role="CustomLoads" Type="Self.CustomLoads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingTemplates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomLoads">
+              <PropertyRef Name="TrainingTemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Managers_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Managers" Type="Self.Managers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Managers">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Managers_dbo_Images_ImageId">
+          <End Role="Images" Type="Self.Images" Multiplicity="0..1" />
+          <End Role="Managers" Type="Self.Managers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Managers">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Trainings_dbo_Coaches_CoachId">
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="0..1" />
+          <End Role="Trainings" Type="Self.Trainings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coaches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trainings">
+              <PropertyRef Name="CoachId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Trainings_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Trainings" Type="Self.Trainings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trainings">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Trainings_dbo_Managers_ManagerId">
+          <End Role="Managers" Type="Self.Managers" Multiplicity="0..1" />
+          <End Role="Trainings" Type="Self.Trainings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Managers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trainings">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище FitnessModelContainer">
+          <EntitySet Name="Administrators" EntityType="Self.Administrators" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coaches" EntityType="Self.Coaches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomLoads" EntityType="Self.CustomLoads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Loads" EntityType="Self.Loads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Managers" EntityType="Self.Managers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trainings" EntityType="Self.Trainings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrainingTemplates" EntityType="Self.TrainingTemplates" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Administrators_dbo_AspNetUsers_Id" Association="Self.FK_dbo_Administrators_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Administrators_dbo_Images_ImageId" Association="Self.FK_dbo_Administrators_dbo_Images_ImageId">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Coaches_dbo_AspNetUsers_Id" Association="Self.FK_dbo_Coaches_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Coaches" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Coaches_dbo_Images_ImageId" Association="Self.FK_dbo_Coaches_dbo_Images_ImageId">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Coaches" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Coaches_dbo_Managers_ManagerId" Association="Self.FK_dbo_Coaches_dbo_Managers_ManagerId">
+            <End Role="Managers" EntitySet="Managers" />
+            <End Role="Coaches" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Customers_dbo_AspNetUsers_Id" Association="Self.FK_dbo_Customers_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Customers_dbo_Coaches_CoachId" Association="Self.FK_dbo_Customers_dbo_Coaches_CoachId">
+            <End Role="Coaches" EntitySet="Coaches" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Customers_dbo_Images_ImageId" Association="Self.FK_dbo_Customers_dbo_Images_ImageId">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Customers_dbo_Managers_ManagerId" Association="Self.FK_dbo_Customers_dbo_Managers_ManagerId">
+            <End Role="Managers" EntitySet="Managers" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CustomLoads_dbo_Loads_LoadName" Association="Self.FK_dbo_CustomLoads_dbo_Loads_LoadName">
+            <End Role="Loads" EntitySet="Loads" />
+            <End Role="CustomLoads" EntitySet="CustomLoads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CustomLoads_dbo_Trainings_TrainingId" Association="Self.FK_dbo_CustomLoads_dbo_Trainings_TrainingId">
+            <End Role="Trainings" EntitySet="Trainings" />
+            <End Role="CustomLoads" EntitySet="CustomLoads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CustomLoads_dbo_TrainingTemplates_TrainingTemplateId" Association="Self.FK_dbo_CustomLoads_dbo_TrainingTemplates_TrainingTemplateId">
+            <End Role="TrainingTemplates" EntitySet="TrainingTemplates" />
+            <End Role="CustomLoads" EntitySet="CustomLoads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Managers_dbo_AspNetUsers_Id" Association="Self.FK_dbo_Managers_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Managers" EntitySet="Managers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Managers_dbo_Images_ImageId" Association="Self.FK_dbo_Managers_dbo_Images_ImageId">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Managers" EntitySet="Managers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Trainings_dbo_Coaches_CoachId" Association="Self.FK_dbo_Trainings_dbo_Coaches_CoachId">
+            <End Role="Coaches" EntitySet="Coaches" />
+            <End Role="Trainings" EntitySet="Trainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Trainings_dbo_Customers_CustomerId" Association="Self.FK_dbo_Trainings_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Trainings" EntitySet="Trainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Trainings_dbo_Managers_ManagerId" Association="Self.FK_dbo_Trainings_dbo_Managers_ManagerId">
+            <End Role="Managers" EntitySet="Managers" />
+            <End Role="Trainings" EntitySet="Trainings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FitnessModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageId" Type="Guid" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_Administrators_dbo_AspNetUsers_Id" FromRole="Administrators" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_dbo_Administrators_dbo_Images_ImageId" FromRole="Administrators" ToRole="Images" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Discriminator" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Administrator" Relationship="Self.FK_dbo_Administrators_dbo_AspNetUsers_Id" FromRole="AspNetUsers" ToRole="Administrators" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Coach" Relationship="Self.FK_dbo_Coaches_dbo_AspNetUsers_Id" FromRole="AspNetUsers" ToRole="Coaches" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Customers_dbo_AspNetUsers_Id" FromRole="AspNetUsers" ToRole="Customers" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_dbo_Managers_dbo_AspNetUsers_Id" FromRole="AspNetUsers" ToRole="Managers" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Coach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ImageId" Type="Guid" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_Coaches_dbo_AspNetUsers_Id" FromRole="Coaches" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_dbo_Coaches_dbo_Images_ImageId" FromRole="Coaches" ToRole="Images" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_dbo_Coaches_dbo_Managers_ManagerId" FromRole="Coaches" ToRole="Managers" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_dbo_Customers_dbo_Coaches_CoachId" FromRole="Coaches" ToRole="Customers" />
+          <NavigationProperty Name="Trainings" Relationship="Self.FK_dbo_Trainings_dbo_Coaches_CoachId" FromRole="Coaches" ToRole="Trainings" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Growth" Type="Int32" />
+          <Property Name="Sex" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CoachId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ImageId" Type="Guid" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_Customers_dbo_AspNetUsers_Id" FromRole="Customers" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Coach" Relationship="Self.FK_dbo_Customers_dbo_Coaches_CoachId" FromRole="Customers" ToRole="Coaches" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_dbo_Customers_dbo_Images_ImageId" FromRole="Customers" ToRole="Images" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_dbo_Customers_dbo_Managers_ManagerId" FromRole="Customers" ToRole="Managers" />
+          <NavigationProperty Name="Trainings" Relationship="Self.FK_dbo_Trainings_dbo_Customers_CustomerId" FromRole="Customers" ToRole="Trainings" />
+        </EntityType>
+        <EntityType Name="CustomLoad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CustomSeries" Type="Int32" />
+          <Property Name="CustomIteration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LoadName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="TrainingId" Type="Guid" />
+          <Property Name="TrainingTemplateId" Type="Guid" />
+          <NavigationProperty Name="Load" Relationship="Self.FK_dbo_CustomLoads_dbo_Loads_LoadName" FromRole="CustomLoads" ToRole="Loads" />
+          <NavigationProperty Name="Training" Relationship="Self.FK_dbo_CustomLoads_dbo_Trainings_TrainingId" FromRole="CustomLoads" ToRole="Trainings" />
+          <NavigationProperty Name="TrainingTemplate" Relationship="Self.FK_dbo_CustomLoads_dbo_TrainingTemplates_TrainingTemplateId" FromRole="CustomLoads" ToRole="TrainingTemplates" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="OriginImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SmallAvatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Administrators" Relationship="Self.FK_dbo_Administrators_dbo_Images_ImageId" FromRole="Images" ToRole="Administrators" />
+          <NavigationProperty Name="Coaches" Relationship="Self.FK_dbo_Coaches_dbo_Images_ImageId" FromRole="Images" ToRole="Coaches" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_dbo_Customers_dbo_Images_ImageId" FromRole="Images" ToRole="Customers" />
+          <NavigationProperty Name="Managers" Relationship="Self.FK_dbo_Managers_dbo_Images_ImageId" FromRole="Images" ToRole="Managers" />
+        </EntityType>
+        <EntityType Name="Load">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Series" Type="Int32" />
+          <Property Name="Iteration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomLoads" Relationship="Self.FK_dbo_CustomLoads_dbo_Loads_LoadName" FromRole="Loads" ToRole="CustomLoads" />
+        </EntityType>
+        <EntityType Name="Manager">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageId" Type="Guid" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_Managers_dbo_AspNetUsers_Id" FromRole="Managers" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Coaches" Relationship="Self.FK_dbo_Coaches_dbo_Managers_ManagerId" FromRole="Managers" ToRole="Coaches" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_dbo_Customers_dbo_Managers_ManagerId" FromRole="Managers" ToRole="Customers" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_dbo_Managers_dbo_Images_ImageId" FromRole="Managers" ToRole="Images" />
+          <NavigationProperty Name="Trainings" Relationship="Self.FK_dbo_Trainings_dbo_Managers_ManagerId" FromRole="Managers" ToRole="Trainings" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Aim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GenderCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Complexity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WeekDuration" Type="Int32" />
+          <Property Name="DaysPerWeek" Type="Int32" />
+          <Property Name="TrainingDuration" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfTraining" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CoachId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Coach" Relationship="Self.FK_dbo_Trainings_dbo_Coaches_CoachId" FromRole="Trainings" ToRole="Coaches" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_Trainings_dbo_Customers_CustomerId" FromRole="Trainings" ToRole="Customers" />
+          <NavigationProperty Name="CustomLoads" Relationship="Self.FK_dbo_CustomLoads_dbo_Trainings_TrainingId" FromRole="Trainings" ToRole="CustomLoads" />
+          <NavigationProperty Name="Manager" Relationship="Self.FK_dbo_Trainings_dbo_Managers_ManagerId" FromRole="Trainings" ToRole="Managers" />
+        </EntityType>
+        <EntityType Name="TrainingTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Aim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GenderCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Complexity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WeekDuration" Type="Int32" />
+          <Property Name="DaysPerWeek" Type="Int32" />
+          <Property Name="TrainingDuration" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomLoads" Relationship="Self.FK_dbo_CustomLoads_dbo_TrainingTemplates_TrainingTemplateId" FromRole="TrainingTemplates" ToRole="CustomLoads" />
+        </EntityType>
+        <Association Name="FK_dbo_Administrators_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Administrators" Type="Self.Administrator" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Administrators_dbo_Images_ImageId">
+          <End Role="Images" Type="Self.Image" Multiplicity="0..1" />
+          <End Role="Administrators" Type="Self.Administrator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Administrators">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Coaches_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Coaches" Type="Self.Coach" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coaches">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Customers_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Managers_dbo_AspNetUsers_Id">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Managers" Type="Self.Manager" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Managers">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Coaches_dbo_Images_ImageId">
+          <End Role="Images" Type="Self.Image" Multiplicity="0..1" />
+          <End Role="Coaches" Type="Self.Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coaches">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Coaches_dbo_Managers_ManagerId">
+          <End Role="Managers" Type="Self.Manager" Multiplicity="0..1" />
+          <End Role="Coaches" Type="Self.Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Managers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Coaches">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Customers_dbo_Coaches_CoachId">
+          <End Role="Coaches" Type="Self.Coach" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coaches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="CoachId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Trainings_dbo_Coaches_CoachId">
+          <End Role="Coaches" Type="Self.Coach" Multiplicity="0..1" />
+          <End Role="Trainings" Type="Self.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coaches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trainings">
+              <PropertyRef Name="CoachId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Customers_dbo_Images_ImageId">
+          <End Role="Images" Type="Self.Image" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Customers_dbo_Managers_ManagerId">
+          <End Role="Managers" Type="Self.Manager" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Managers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Trainings_dbo_Customers_CustomerId">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Trainings" Type="Self.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trainings">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CustomLoads_dbo_Loads_LoadName">
+          <End Role="Loads" Type="Self.Load" Multiplicity="0..1" />
+          <End Role="CustomLoads" Type="Self.CustomLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loads">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="CustomLoads">
+              <PropertyRef Name="LoadName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CustomLoads_dbo_Trainings_TrainingId">
+          <End Role="Trainings" Type="Self.Training" Multiplicity="0..1" />
+          <End Role="CustomLoads" Type="Self.CustomLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainings">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomLoads">
+              <PropertyRef Name="TrainingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_CustomLoads_dbo_TrainingTemplates_TrainingTemplateId">
+          <End Role="TrainingTemplates" Type="Self.TrainingTemplate" Multiplicity="0..1" />
+          <End Role="CustomLoads" Type="Self.CustomLoad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrainingTemplates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomLoads">
+              <PropertyRef Name="TrainingTemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Managers_dbo_Images_ImageId">
+          <End Role="Images" Type="Self.Image" Multiplicity="0..1" />
+          <End Role="Managers" Type="Self.Manager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Images">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Managers">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Trainings_dbo_Managers_ManagerId">
+          <End Role="Managers" Type="Self.Manager" Multiplicity="0..1" />
+          <End Role="Trainings" Type="Self.Training" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Managers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Trainings">
+              <PropertyRef Name="ManagerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrators" EntityType="Self.Administrator" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Coaches" EntityType="Self.Coach" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="CustomLoads" EntityType="Self.CustomLoad" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="Loads" EntityType="Self.Load" />
+          <EntitySet Name="Managers" EntityType="Self.Manager" />
+          <EntitySet Name="Trainings" EntityType="Self.Training" />
+          <EntitySet Name="TrainingTemplates" EntityType="Self.TrainingTemplate" />
+          <AssociationSet Name="FK_dbo_Administrators_dbo_AspNetUsers_Id" Association="Self.FK_dbo_Administrators_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Administrators_dbo_Images_ImageId" Association="Self.FK_dbo_Administrators_dbo_Images_ImageId">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Administrators" EntitySet="Administrators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Coaches_dbo_AspNetUsers_Id" Association="Self.FK_dbo_Coaches_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Coaches" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Customers_dbo_AspNetUsers_Id" Association="Self.FK_dbo_Customers_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Managers_dbo_AspNetUsers_Id" Association="Self.FK_dbo_Managers_dbo_AspNetUsers_Id">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Managers" EntitySet="Managers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Coaches_dbo_Images_ImageId" Association="Self.FK_dbo_Coaches_dbo_Images_ImageId">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Coaches" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Coaches_dbo_Managers_ManagerId" Association="Self.FK_dbo_Coaches_dbo_Managers_ManagerId">
+            <End Role="Managers" EntitySet="Managers" />
+            <End Role="Coaches" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Customers_dbo_Coaches_CoachId" Association="Self.FK_dbo_Customers_dbo_Coaches_CoachId">
+            <End Role="Coaches" EntitySet="Coaches" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Trainings_dbo_Coaches_CoachId" Association="Self.FK_dbo_Trainings_dbo_Coaches_CoachId">
+            <End Role="Coaches" EntitySet="Coaches" />
+            <End Role="Trainings" EntitySet="Trainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Customers_dbo_Images_ImageId" Association="Self.FK_dbo_Customers_dbo_Images_ImageId">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Customers_dbo_Managers_ManagerId" Association="Self.FK_dbo_Customers_dbo_Managers_ManagerId">
+            <End Role="Managers" EntitySet="Managers" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Trainings_dbo_Customers_CustomerId" Association="Self.FK_dbo_Trainings_dbo_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Trainings" EntitySet="Trainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CustomLoads_dbo_Loads_LoadName" Association="Self.FK_dbo_CustomLoads_dbo_Loads_LoadName">
+            <End Role="Loads" EntitySet="Loads" />
+            <End Role="CustomLoads" EntitySet="CustomLoads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CustomLoads_dbo_Trainings_TrainingId" Association="Self.FK_dbo_CustomLoads_dbo_Trainings_TrainingId">
+            <End Role="Trainings" EntitySet="Trainings" />
+            <End Role="CustomLoads" EntitySet="CustomLoads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_CustomLoads_dbo_TrainingTemplates_TrainingTemplateId" Association="Self.FK_dbo_CustomLoads_dbo_TrainingTemplates_TrainingTemplateId">
+            <End Role="TrainingTemplates" EntitySet="TrainingTemplates" />
+            <End Role="CustomLoads" EntitySet="CustomLoads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Managers_dbo_Images_ImageId" Association="Self.FK_dbo_Managers_dbo_Images_ImageId">
+            <End Role="Images" EntitySet="Images" />
+            <End Role="Managers" EntitySet="Managers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Trainings_dbo_Managers_ManagerId" Association="Self.FK_dbo_Trainings_dbo_Managers_ManagerId">
+            <End Role="Managers" EntitySet="Managers" />
+            <End Role="Trainings" EntitySet="Trainings" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище FitnessModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Administrators">
+            <EntityTypeMapping TypeName="FitnessModel.Administrator">
+              <MappingFragment StoreEntitySet="Administrators">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="FitnessModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="FitnessModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="FitnessModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="FitnessModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coaches">
+            <EntityTypeMapping TypeName="FitnessModel.Coach">
+              <MappingFragment StoreEntitySet="Coaches">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="FitnessModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Growth" ColumnName="Growth" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CoachId" ColumnName="CoachId" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomLoads">
+            <EntityTypeMapping TypeName="FitnessModel.CustomLoad">
+              <MappingFragment StoreEntitySet="CustomLoads">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomSeries" ColumnName="CustomSeries" />
+                <ScalarProperty Name="CustomIteration" ColumnName="CustomIteration" />
+                <ScalarProperty Name="LoadName" ColumnName="LoadName" />
+                <ScalarProperty Name="TrainingId" ColumnName="TrainingId" />
+                <ScalarProperty Name="TrainingTemplateId" ColumnName="TrainingTemplateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="FitnessModel.Image">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OriginImage" ColumnName="OriginImage" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="SmallAvatar" ColumnName="SmallAvatar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loads">
+            <EntityTypeMapping TypeName="FitnessModel.Load">
+              <MappingFragment StoreEntitySet="Loads">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+                <ScalarProperty Name="Iteration" ColumnName="Iteration" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Managers">
+            <EntityTypeMapping TypeName="FitnessModel.Manager">
+              <MappingFragment StoreEntitySet="Managers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainings">
+            <EntityTypeMapping TypeName="FitnessModel.Training">
+              <MappingFragment StoreEntitySet="Trainings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Aim" ColumnName="Aim" />
+                <ScalarProperty Name="GenderCategory" ColumnName="GenderCategory" />
+                <ScalarProperty Name="Complexity" ColumnName="Complexity" />
+                <ScalarProperty Name="WeekDuration" ColumnName="WeekDuration" />
+                <ScalarProperty Name="DaysPerWeek" ColumnName="DaysPerWeek" />
+                <ScalarProperty Name="TrainingDuration" ColumnName="TrainingDuration" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="DateOfTraining" ColumnName="DateOfTraining" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CoachId" ColumnName="CoachId" />
+                <ScalarProperty Name="ManagerId" ColumnName="ManagerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrainingTemplates">
+            <EntityTypeMapping TypeName="FitnessModel.TrainingTemplate">
+              <MappingFragment StoreEntitySet="TrainingTemplates">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Aim" ColumnName="Aim" />
+                <ScalarProperty Name="GenderCategory" ColumnName="GenderCategory" />
+                <ScalarProperty Name="Complexity" ColumnName="Complexity" />
+                <ScalarProperty Name="WeekDuration" ColumnName="WeekDuration" />
+                <ScalarProperty Name="DaysPerWeek" ColumnName="DaysPerWeek" />
+                <ScalarProperty Name="TrainingDuration" ColumnName="TrainingDuration" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="FitnessModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FitnessApp.BLL.DTO.AdministratorDTO">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DTO\AdministratorDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.DTO.CoachDTO">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAABAAgAEAAEAAAAAAQBAACAAAAIAAAAAA=</HashCode>
+      <FileName>DTO\CoachDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.DTO.CustomerDTO">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQBAAgAEAAEAAAAiAQBAACAAAAIAAAAAA=</HashCode>
+      <FileName>DTO\CustomerDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.DTO.CustomLoadDTO">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DTO\CustomLoadDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.DTO.ImageDTO">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DTO\ImageDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.DTO.LoadDTO">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEQAAAAAAAQAAAAAAAAAAAAAAAEAAAE=</HashCode>
+      <FileName>DTO\LoadDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.DTO.ManagerDTO">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAABAAAAAAAAEAAAAAAQAAACAAAAIAAAAAA=</HashCode>
+      <FileName>DTO\ManagerDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.DTO.TrainingDTO">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AGECAIAEQAAgAAAAAQAAAAQQAgAABAAAAAAQAAEAAEA=</HashCode>
+      <FileName>DTO\TrainingDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.DTO.TrainingTemplateDTO">
+    <Position X="9.25" Y="2" Width="2" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AGACAAAAQAAgAAAAAQAAAAQQAAAAAAAAAAAQAAEAAEA=</HashCode>
+      <FileName>DTO\TrainingTemplateDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.DTO.UserDTO">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAACAGEAACAAAAAAEAQAAAAAAAAAAAECAQAAAAAAAAg=</HashCode>
+      <FileName>DTO\UserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.Helpers.Age">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Helpers\Age.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.Infrastructure.OperationDetails">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAAAA=</HashCode>
+      <FileName>Infrastructure\OperationDetails.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FitnessApp.BLL.Services.AdministratorService" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="9.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AEUAAAEAAGAAAAAAAAAAAAIAAAAAAEAAAgAAIAAAAAA=</HashCode>
+      <FileName>Services\AdministratorService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.BLL.Services.CoachService" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="9.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AEUAAAEAAGACAAAAAAABAAAAAAAAQEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Services\CoachService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.BLL.Services.CustomerService" BaseTypeListCollapsed="true">
+    <Position X="5" Y="9.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AEUAAAEAgGAAAAAAAgAAAAQAABAAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Services\CustomerService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.BLL.Services.ManagerService" BaseTypeListCollapsed="true">
+    <Position X="10" Y="9.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AEUAAAEAAGAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Services\ManagerService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="FitnessApp.BLL.Services.ServiceCreator" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="9.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAQAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Services\ServiceCreator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" Collapsed="true" />
+  </Class>
+  <Interface Name="FitnessApp.BLL.Interfaces.IAdministratorService">
+    <Position X="7.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Interfaces\IAdministratorService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.BLL.Interfaces.ICoachService">
+    <Position X="3" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICoachService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.BLL.Interfaces.ICustomerService">
+    <Position X="4.75" Y="7.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAgAAAAQAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICustomerService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.BLL.Interfaces.IManagerService">
+    <Position X="0.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IManagerService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.BLL.Interfaces.IServiceCreator">
+    <Position X="9.5" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAQAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Interfaces\IServiceCreator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FitnessApp.BLL.Interfaces.IUserService&lt;T&gt;">
+    <Position X="4" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEUAAAEAAAAAAAAAAAAAAAAAAAAAAEAAAgAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
